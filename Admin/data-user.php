@@ -1,3 +1,12 @@
+<?php 
+
+    require '../function/function.php';
+
+    $votes = query("SELECT * FROM users");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -107,17 +116,22 @@
                     <thead>
                         <tr class="table-dark">
                             <th scope="col" width="30">No.</th>
+                            <th scope="col">Nama Lengkap</th>
                             <th scope="col">Username</th>
                             <th scope="col">Email</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach($votes as $vote) : ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>ghaidafasya24</td>
-                            <td>ghaidafasya5@gmail.com</td>
+                            <th scope="row"><?= $i; ?></th>
+                            <td><?= $vote["nama_lengkap"]; ?></td>
+                            <td><?= $vote["username"]; ?></td>
+                            <td><?= $vote["email"]; ?></td>
                         </tr>
-
+                        <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </main>

@@ -1,3 +1,31 @@
+<?php
+require  '../function/function.php';
+
+
+//Cek apakah tombol sudah ditekan atau belom
+if (isset($_POST["submit"])) {
+
+    // var_dump($_POST);
+    // var_dump($_FILES);
+    // die;
+
+    if (tambah($_POST) > 0) {
+        echo
+        "<script>
+                alert('Kandidat berhasil ditambahkan');
+                window.location.href = 'data-kandidat.php';
+            </script>";
+    } else {
+        echo
+        "<script>
+                alert('Kandidat gagal ditambahkan :( ');
+            </script>";
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,52 +85,55 @@
 
 
         <!-- content  -->
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="judul_film" class="form-label text-dark">Nama Kandidat</label>
-                <input type="text" name="judul_film" id="judul_film" required class="form-control" placeholder="masukkan nama kandidat ...">
+                <label for="nama_kandidat" class="form-label text-dark">Nama Kandidat</label>
+                <input type="text" name="nama_kandidat" id="nama_kandidat" required class="form-control" placeholder="masukkan nama kandidat ...">
             </div>
 
             <label for="prodi" class="form-label text-dark">Program Studi</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" name="prodi" aria-label="Default select example">
                 <option selected>Pilih Program Studi</option>
-                <option value="1">D3 Teknik Informatika</option>
-                <option value="1">D3 Akuntansi</option>
-                <option value="1">D3 Logistik Bisnis</option>
-                <option value="2">D4 Teknik Informatika</option>
-                <option value="2">D4 Akuntansi</option>
-                <option value="2">D4 Logistik Bisnis</option>
-                <option value="2">D4 E-Commerce Logistik</option>
-                <option value="2">S1 Sains Data</option>
-                <option value="2">S1 Manajemen Transportasi</option>
-                <option value="2">S1 Manajemen Logistik</option>
+                <option>D3 Teknik Informatika</option>
+                <option>D3 Akuntansi</option>
+                <option>D3 Logistik Bisnis</option>
+                <option>D4 Teknik Informatika</option>
+                <option>D4 Akuntansi</option>
+                <option>D4 Logistik Bisnis</option>
+                <option>D4 E-Commerce Logistik</option>
+                <option>S1 Sains Data</option>
+                <option>S1 Manajemen Transportasi</option>
+                <option>S1 Manajemen Logistik</option>
             </select>
 
             <br>
 
-            <label for="prodi" class="form-label text-dark">Fakultas</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Pilih Fakultas</option>
-                <option value="1">Vokasi</option>
-                <option value="1">FLTB</option>
-            </select>
-
-            <br>
-
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Visi - Misi</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="masukkan visi-misi ..."></textarea>
+            <div class="mb-2">
+                <label for="jabatan" class="form-label">Jabatan</label>
+                <select name="jabatan" class="form-select" id="jabatan">
+                    <option selected>Pilih Jabatan</option>
+                    <option>Ketua</option>
+                    <option>Wakil</option>
+                </select>
             </div>
 
+            <br>
 
+            <div class="mb-2">
+                <label for="visi" class="form-label">Visi</label>
+                <textarea class="form-control" name="visi" id="visi" rows="3" placeholder="masukkan visi-misi ..."></textarea>
+            </div>
 
+            <div class="mb-2">
+                <label for="misi" class="form-label">Misi</label>
+                <textarea class="form-control" name="misi" id="misi" rows="3" placeholder="masukkan visi-misi ..."></textarea>
+            </div>
 
-
+            <br>
 
             <label for="basic-url" class="form-label">Foto</label>
             <div class="input-group mb-3">
-                <input type="file" class="form-control" id="inputGroupFile02">
-                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                <input type="file" name="gambar" class="form-control" id="inputGroupFile02">
             </div>
 
             <br>

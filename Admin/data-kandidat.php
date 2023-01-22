@@ -1,3 +1,12 @@
+<?php 
+    require '../function/function.php';
+
+    $students = query("SELECT * FROM kandidat");
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,30 +120,33 @@
                 <table class="table table-striped text-center">
                     <thead>
                         <tr class="table-dark">
-                            <th scope="col" width="30">No.</th>
+                            <th scope="col" width="30">ID</th>
                             <th scope="col">Foto</th>
                             <th scope="col">Nama Kandidat</th>
                             <th scope="col">Prodi</th>
-                            <th scope="col">Fakultas</th>
-                            <th scope="col">Visi - Misi</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Visi</th>
+                            <th scope="col">Misi</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($students as $student) : ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td><img src="" alt=""></td>
-                            <td>Ghaida Fasya</td>
-                            <td>D4 Teknik Informatika</td>
-                            <td>Vokasi</td>
-                            <td>Turu</td>
+                            <th scope="row"><?= $student["id_kandidat"]; ?></th>
+                            <td><img src="../assets/images/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
+                            <td><?= $student["nama_kandidat"]; ?></td>
+                            <td><?= $student["prodi"]; ?></td>
+                            <td><?= $student["jabatan"]; ?></td>
+                            <td><?= $student["visi"]; ?></td>
+                            <td><?= $student["misi"]; ?></td>
                             <td>
-                                <a type="button" class="btn btn-primary" href="">Detail</a>
+                                <!-- <a type="button" class="btn btn-primary" href="">Detail</a> -->
                                 <a type="button" class="btn btn-warning" href="">Edit</a>
                                 <a type="button" class="btn btn-danger" href="">Hapus</a>
                             </td>
                         </tr>
-
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
             </main>
