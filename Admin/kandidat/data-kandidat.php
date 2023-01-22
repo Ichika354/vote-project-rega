@@ -1,8 +1,8 @@
 <?php 
+    require '../../function/function.php';
 
-    require '../function/function.php';
+    $students = query("SELECT * FROM kandidat");
 
-    $votes = query("SELECT * FROM users");
 
 
 ?>
@@ -18,7 +18,7 @@
     <meta name="author" content="" />
     <title>Dashboard Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="../assets/css/dashboard.css" rel="stylesheet" />
+    <link href="../../assets/css/dashboard.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -75,15 +75,15 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../Admin/data-user.php">Data User</a>
-                                <a class="nav-link" href="../Admin/data-kandidat.php">Data Kandidat</a>
-                                <a class="nav-link" href="../Admin/laporan-hasil-vote.php">Laporan Hasil Vote</a>
+                                <a class="nav-link" href="../user/data-user.php">Data User</a>
+                                <a class="nav-link" href="../kandidat/data-kandidat.php">Data Kandidat</a>
+                                <a class="nav-link" href="../laporan/laporan-hasil-vote.php">Laporan Hasil Vote</a>
                             </nav>
                         </div>
 
 
                         <div class="sb-sidenav-menu-heading">My Account</div>
-                        <a class="nav-link" href="../Admin/profile.php">
+                        <a class="nav-link" href="../profile/profile.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
@@ -104,34 +104,49 @@
         <div id="layoutSidenav_content">
             <main class="p-4">
                 <div class="container-fluid px-4">
-                    <h1 class="">Data User</h1>
+                    <h1 class="">Data Kandidat</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                         <li class="breadcrumb-item active">Main Menu</a></li>
-                        <li class="breadcrumb-item active">Data User</li>
+                        <li class="breadcrumb-item active">Data Kandidat</li>
                     </ol>
                 </div>
+
+                
                 <br>
+                <a type="button" class="btn btn-success" href="../config/create/create-kandidat.php">Tambah</a>
+                <hr>
+                
                 <table class="table table-striped text-center">
                     <thead>
                         <tr class="table-dark">
-                            <th scope="col" width="30">No.</th>
-                            <th scope="col">Nama Lengkap</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Email</th>
+                            <th scope="col" width="30">ID</th>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Nama Kandidat</th>
+                            <th scope="col">Prodi</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Visi</th>
+                            <th scope="col">Misi</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach($votes as $vote) : ?>
+                    <?php foreach($students as $student) : ?>
                         <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><?= $vote["nama_lengkap"]; ?></td>
-                            <td><?= $vote["username"]; ?></td>
-                            <td><?= $vote["email"]; ?></td>
+                            <th scope="row"><?= $student["id_kandidat"]; ?></th>
+                            <td><img src="../../assets/images/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
+                            <td><?= $student["nama_kandidat"]; ?></td>
+                            <td><?= $student["prodi"]; ?></td>
+                            <td><?= $student["jabatan"]; ?></td>
+                            <td><?= $student["visi"]; ?></td>
+                            <td><?= $student["misi"]; ?></td>
+                            <td>
+                                <!-- <a type="button" class="btn btn-primary" href="">Detail</a> -->
+                                <a type="button" class="btn btn-warning" href="">Edit</a>
+                                <a type="button" class="btn btn-danger" href="">Hapus</a>
+                            </td>
                         </tr>
-                        <?php $i++; ?>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
             </main>

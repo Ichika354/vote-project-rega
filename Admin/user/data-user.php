@@ -1,3 +1,12 @@
+<?php 
+
+    require '../../function/function.php';
+
+    $votes = query("SELECT * FROM users");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +18,7 @@
     <meta name="author" content="" />
     <title>Dashboard Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="../assets/css/dashboard.css" rel="stylesheet" />
+    <link href="../../assets/css/dashboard.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -66,15 +75,15 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../Admin/data-user.php">Data User</a>
-                                <a class="nav-link" href="../Admin/data-kandidat.php">Data Kandidat</a>
-                                <a class="nav-link" href="../Admin/laporan-hasil-vote.php">Laporan Hasil Vote</a>
+                                <a class="nav-link" href="../user/data-user.php">Data User</a>
+                                <a class="nav-link" href="../kandidat/data-kandidat.php">Data Kandidat</a>
+                                <a class="nav-link" href="../laporan/laporan-hasil-vote.php">Laporan Hasil Vote</a>
                             </nav>
                         </div>
 
 
                         <div class="sb-sidenav-menu-heading">My Account</div>
-                        <a class="nav-link" href="../Admin/profile.php">
+                        <a class="nav-link" href="../profile/profile.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
@@ -95,11 +104,11 @@
         <div id="layoutSidenav_content">
             <main class="p-4">
                 <div class="container-fluid px-4">
-                    <h1 class="">Laporan Hasil Vote</h1>
+                    <h1 class="">Data User</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                         <li class="breadcrumb-item active">Main Menu</a></li>
-                        <li class="breadcrumb-item active">Laporan Hasil Vote</li>
+                        <li class="breadcrumb-item active">Data User</li>
                     </ol>
                 </div>
                 <br>
@@ -107,21 +116,22 @@
                     <thead>
                         <tr class="table-dark">
                             <th scope="col" width="30">No.</th>
-                            <th scope="col">NAMA PEMILIH</th>
-                            <th scope="col">PROGRAM STUDI</th>
-                            <th scope="col">PILIHAN</th>
-                            <th scope="col">TANGGAL MEMILIH</th>
+                            <th scope="col">Nama Lengkap</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach($votes as $vote) : ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Ghaida Fasya</td>
-                            <td>D4 Teknik Informatika</td>
-                            <td>Reja</td>
-                            <td>12-01-2023</td>
+                            <th scope="row"><?= $i; ?></th>
+                            <td><?= $vote["nama_lengkap"]; ?></td>
+                            <td><?= $vote["username"]; ?></td>
+                            <td><?= $vote["email"]; ?></td>
                         </tr>
-
+                        <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </main>

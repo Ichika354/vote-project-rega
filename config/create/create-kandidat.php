@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
         echo
         "<script>
                 alert('Kandidat berhasil ditambahkan');
-                window.location.href = 'data-kandidat.php';
+                window.location.href = '../../kandidat/data-kandidat.php';
             </script>";
     } else {
         echo

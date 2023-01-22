@@ -40,7 +40,6 @@
     function upload(){
     
         $namaFile = $_FILES["gambar"]["name"];
-        $ukuranFile = $_FILES["gambar"]["size"];
         $error = $_FILES["gambar"]["error"];
         $tmpName = $_FILES["gambar"]["tmp_name"];
     
@@ -75,7 +74,7 @@
     
     
     
-        move_uploaded_file($tmpName, '../assets/images/'.$namaFileBaru);
+        move_uploaded_file($tmpName, '../../assets/images/'.$namaFileBaru);
     
         return $namaFileBaru;
     

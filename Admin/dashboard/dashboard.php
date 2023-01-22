@@ -1,11 +1,17 @@
-<?php 
-    require '../function/function.php';
+<?php
 
-    $students = query("SELECT * FROM kandidat");
+require '../../function/function.php';
+
+$data_user = mysqli_query($connect, "SELECT * FROM users");
+$data_kandidat = mysqli_query($connect, "SELECT * FROM kandidat");
+
+$jumlah_user = mysqli_num_rows($data_user);
+$jumlah_kandidat = mysqli_num_rows($data_kandidat);
 
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +24,7 @@
     <meta name="author" content="" />
     <title>Dashboard Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="../assets/css/dashboard.css" rel="stylesheet" />
+    <link href="../../assets/css/dashboard.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -75,15 +81,15 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../Admin/data-user.php">Data User</a>
-                                <a class="nav-link" href="../Admin/data-kandidat.php">Data Kandidat</a>
-                                <a class="nav-link" href="../Admin/laporan-hasil-vote.php">Laporan Hasil Vote</a>
+                                <a class="nav-link" href="../user/data-user.php">Data User</a>
+                                <a class="nav-link" href="../kandidat/data-kandidat.php">Data Kandidat</a>
+                                <a class="nav-link" href="../laporan/laporan-hasil-vote.php">Laporan Hasil Vote</a>
                             </nav>
                         </div>
 
 
                         <div class="sb-sidenav-menu-heading">My Account</div>
-                        <a class="nav-link" href="../Admin/profile.php">
+                        <a class="nav-link" href="../profile/profile.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
@@ -100,66 +106,67 @@
 
 
 
-        <!-- content  -->
         <div id="layoutSidenav_content">
-            <main class="p-4">
+            <main>
                 <div class="container-fluid px-4">
-                    <h1 class="">Data Kandidat</h1>
+                    <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Main Menu</a></li>
-                        <li class="breadcrumb-item active">Data Kandidat</li>
+                        <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card p-2 shadow">
+                                <div class="d-flex align-items-center px-2">
+                                <i class="fa fa-users float-start fa-3x py-auto" aria-hidden="true"></i>
+                                    <div class="card-body text-end">
+                                        <h5 class="card-title"><?= $jumlah_user; ?></h5>
+                                        <p class="card-text">Data User</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <a class="small text-dark text-start fw-bold stretched-link" href="../Admin/data-user.php">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card p-2 shadow">
+                                <div class="d-flex align-items-center px-2">
+                                <i class="fa fa-user float-start fa-3x py-auto" aria-hidden="true"></i>
+                                    <div class="card-body text-end">
+                                        <h5 class="card-title"><?= $jumlah_kandidat ?></h5>
+                                        <p class="card-text">Data Kandidat</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <a class="small text-dark text-start fw-bold stretched-link" href="../Admin/data-user.php">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card p-2 shadow">
+                                <div class="d-flex align-items-center px-2">
+                                <i class="fa fa-box float-start fa-3x py-auto" aria-hidden="true"></i>
+                                    <div class="card-body text-end">
+                                        <h5 class="card-title"><?= 1; ?></h5>
+                                        <p class="card-text">Laporan Vote</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <a class="small text-dark text-start fw-bold stretched-link" href="../Admin/data-user.php">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
                 </div>
-
-                
-                <br>
-                <a type="button" class="btn btn-success" href="../Admin/create-kandidat.php">Tambah</a>
-                <hr>
-                
-                <table class="table table-striped text-center">
-                    <thead>
-                        <tr class="table-dark">
-                            <th scope="col" width="30">ID</th>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Nama Kandidat</th>
-                            <th scope="col">Prodi</th>
-                            <th scope="col">Jabatan</th>
-                            <th scope="col">Visi</th>
-                            <th scope="col">Misi</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($students as $student) : ?>
-                        <tr>
-                            <th scope="row"><?= $student["id_kandidat"]; ?></th>
-                            <td><img src="../assets/images/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
-                            <td><?= $student["nama_kandidat"]; ?></td>
-                            <td><?= $student["prodi"]; ?></td>
-                            <td><?= $student["jabatan"]; ?></td>
-                            <td><?= $student["visi"]; ?></td>
-                            <td><?= $student["misi"]; ?></td>
-                            <td>
-                                <!-- <a type="button" class="btn btn-primary" href="">Detail</a> -->
-                                <a type="button" class="btn btn-warning" href="">Edit</a>
-                                <a type="button" class="btn btn-danger" href="">Hapus</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </main>
         </div>
-
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
