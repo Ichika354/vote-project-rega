@@ -1,8 +1,17 @@
-<?php 
+<?php
 
-    require '../../function/function.php';
+// session_start();
 
-    $votes = query("SELECT * FROM users");
+// $session = isset($_SESSION["login"]);
+
+// if (!$session) {
+//     header("Location: ../../index.php");
+//     exit;
+// }
+
+require '../../function/function.php';
+
+$votes = query("SELECT * FROM users");
 
 
 ?>
@@ -123,14 +132,14 @@
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach($votes as $vote) : ?>
-                        <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><?= $vote["nama_lengkap"]; ?></td>
-                            <td><?= $vote["username"]; ?></td>
-                            <td><?= $vote["email"]; ?></td>
-                        </tr>
-                        <?php $i++; ?>
+                        <?php foreach ($votes as $vote) : ?>
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td><?= $vote["nama_lengkap"]; ?></td>
+                                <td><?= $vote["username"]; ?></td>
+                                <td><?= $vote["email"]; ?></td>
+                            </tr>
+                            <?php $i++; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

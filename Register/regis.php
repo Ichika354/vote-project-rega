@@ -1,56 +1,19 @@
-<?php
-// session_start();
+<?php 
 
-// $session = isset($_SESSION["login"]);
+    require '../function/function.php';
 
-// if ($session) {
-//    header("Location: ../Admin/dashboard/dashboard.php");
-//     exit;
-// }
+    if(isset($_POST["submit"])) {
 
-require '../function/function.php';
-
-if (isset($_POST["submit"])) {
-
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    $result = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
-
-    //cek username
-    if (mysqli_num_rows($result) === 1) {
-
-        //cek password
-        $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row["password"])) {
-            //set session
-            // $_SESSION["login"] = true;
-            echo "<script>
-                        window.location.href = ''
-                    </script>";
-            exit;
+        if ( regis($_POST) > 0 ){
+            echo
+            "<script>
+                alert('Akun berhasil terbuat');
+                window.location.href = '../Login/login.php'
+            </script>";
+        } else {
+            echo mysqli_error($connect);
         }
     }
-
-    $result2 = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username' AND password = '$password' ");
-    $cek = mysqli_num_rows($result2);
-
-    if ($cek > 0) {
-        global $result2;
-
-        $data = mysqli_fetch_assoc($result2);
-
-        if ($data["level"] === "admin") {
-
-            echo "<script>
-                    window.location.href = '../Admin/dashboard/dashboard.php'
-                </script>";
-        }
-    }
-
-    $error = true;
-}
-
 
 ?>
 
@@ -95,33 +58,31 @@ if (isset($_POST["submit"])) {
                             <div class="mb-4">
                                 <h3 class="text-center">LOGIN HERE</h3>
                                 <p class="mb-4 text-center">Universitas Logistik dan Bisnis Internasinal.</p>
-                                <?php if (isset($error)) : ?>
-                                    <p class="text-danger">Username atau password salah</p>
-                                <?php endif; ?>
                             </div>
-                            <form action="" method="post">
+                            <form action="" method="post" class="pb-5">
+                                <label for="username"  class="form-label">Nama Lengkap</label>
+                                <div class="form-group first">
+                                    <input required name="nama_lengkap" type="text" class="form-control" id="username">
+                                </div>
                                 <label for="username" class="form-label">Username</label>
                                 <div class="form-group first">
-                                    <input required type="text" name="username" class="form-control" id="username">
+                                    <input required name="username" type="text" class="form-control" id="username">
                                 </div>
-                                <br>
                                 <label for="email" class="form-label">Email</label>
                                 <div class="form-group first">
-                                    <input required type="text" name="email" class="form-control" id="email">
+                                    <input required name="email" type="text" class="form-control" id="email">
 
                                 </div>
-                                <br>
                                 <label for="password" class="form-label">Password</label>
                                 <div class="form-group last mb-4">
-                                    <input required type="password" name="password" class="form-control" id="password">
-
+                                    <input required name="password" type="password" class="form-control" id="password">
+                                </div>
+                                <label for="c-password" class="form-label">Confirm Password</label>
+                                <div class="form-group last mb-4">
+                                    <input required name="confirm_password" type="password" class="form-control" id="c-password">
                                 </div>
                                 <hr>
-                                <div class=" mb-5 align-items-center">
-                                    <p class="text-center">Don't have an account? <a href="../Register/regis.php"> Register</a> here.</p>
-                                    <p class="text-center"><a href="../index.php">Back</a></p>
-                                </div>
-                                <input type="submit" name="submit" value="Log In" class="btn btn-block btn-primary">
+                                <input name="submit" type="submit" value="Regis" class="btn btn-block btn-primary">
 
                             </form>
                         </div>

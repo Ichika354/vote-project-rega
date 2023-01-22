@@ -1,3 +1,13 @@
+<?php 
+//    session_start();
+
+//    if (isset($_SESSION["login"])) {
+//        header("Location: ../Admin/dashboard/dashboard.php");
+//        exit;   
+//    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +36,7 @@
             </button>
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto w-50 d-flex justify-content-end align-items-center">
-                    <button class="btn btn-dark" onclick="" href="#kontak">Login</button>
+                    <button class="btn btn-dark" onclick="return window.location.href = 'Login/login.php'">Login</button>
                 </div>
             </div>
         </div>
@@ -37,11 +47,10 @@
     <div class="bg">
         <div class="container p-5 putih">
             <div class="box-1">
-                <div class="title-box text-center">
+                <div class="title-box text-center h-25 d-flex align-items-end">
                     <h2>Vote Presma</h2>
                 </div>
-                <br>
-                <div class="deskription-box">
+                <div class="deskription-box mb-5">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ratione aspernatur provident in enim nam itaque id dignissimos, quis obcaecati quas, tenetur ducimus nemo ut animi, excepturi voluptatum? Dignissimos, delectus!</p>
                     <br>
                     <button class="btn btn-dark">Login</button>

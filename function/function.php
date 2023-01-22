@@ -79,3 +79,46 @@
         return $namaFileBaru;
     
     }
+
+    function regis($data) {
+        global $connect;
+    
+        $nama_lengkap = stripslashes($data["nama_lengkap"]);
+        $username = strtolower(stripslashes($data["username"]));
+        $email = strtolower(stripslashes($data["email"]));
+        $password = mysqli_real_escape_string($connect, $data["password"]);
+        $confirmPassword = mysqli_real_escape_string($connect, $data["confirm_password"]);
+    
+        //cek apakah username sudah ada atau belum
+        $result = mysqli_query($connect, "SELECT username FROM users WHERE username = '$username'");
+    
+        if ( mysqli_fetch_assoc($result)) {
+            echo "<script>
+                    alert('Username yang dipilih sudah terdaftar')
+                </script>";
+                return false;
+        }   
+    
+    
+        if ($password !== $confirmPassword) {
+            echo "<script>
+                    alert('Password tidak sama')
+                </script>";
+            return false;
+        } 
+        
+        //enskripsi password
+        $password = password_hash($password, PASSWORD_DEFAULT);
+    
+        //tambahkan userbaru ke database
+        mysqli_query($connect, "INSERT INTO users VALUES('','$nama_lengkap', '$username','$email', 
+        '$password', 'user')");
+    
+        return mysqli_affected_rows($connect);
+    
+    
+    
+    }
+
+
+?>
