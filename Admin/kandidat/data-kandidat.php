@@ -134,7 +134,7 @@
                     <?php foreach($students as $student) : ?>
                         <tr>
                             <th scope="row"><?= $student["id_kandidat"]; ?></th>
-                            <td><img src="../../assets/images/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
+                            <td><img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
                             <td><?= $student["nama_kandidat"]; ?></td>
                             <td><?= $student["prodi"]; ?></td>
                             <td><?= $student["jabatan"]; ?></td>

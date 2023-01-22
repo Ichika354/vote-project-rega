@@ -74,7 +74,7 @@
     
     
     
-        move_uploaded_file($tmpName, '../../assets/images/'.$namaFileBaru);
+        move_uploaded_file($tmpName, '../../assets/images/fotoKandidat/'.$namaFileBaru);
     
         return $namaFileBaru;
     
