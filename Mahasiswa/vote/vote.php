@@ -1,21 +1,3 @@
-<?php
-
-// session_start();
-
-// $session = isset($_SESSION["login"]);
-
-// if (!$session) {
-//     header("Location: ../../index.php");
-//     exit;
-// }
-
-require '../../function/function.php';
-
-$votes = query("SELECT * FROM users");
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +7,10 @@ $votes = query("SELECT * FROM users");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Admin-Data User</title>
+    <title>Mahasiswa</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="../../assets/css/dashboard.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -37,7 +20,7 @@ $votes = query("SELECT * FROM users");
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <!-- <img src="../assets/images/logo/logo.png" class="ms-3" alt="" width="40" height="40"> -->
-        <a class="navbar-brand ps-3" href="index.html">Admin</a>
+        <a class="navbar-brand ps-3" href="index.html">Mahasiswa</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -71,24 +54,12 @@ $votes = query("SELECT * FROM users");
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="../../Admin/dashboard/dashboard.php">
+                        <div class="sb-sidenav-menu-heading">Main Menu</div>
+                        <a class="nav-link" href="../Admin/dashboard.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Dashboard
+                            Vote
                         </a>
-                        <div class="sb-sidenav-menu-heading">Interface</div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Main Menu
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../user/data-user.php">Data User</a>
-                                <a class="nav-link" href="../kandidat/data-kandidat.php">Data Kandidat</a>
-                                <a class="nav-link" href="../laporan/laporan-hasil-vote.php">Laporan Hasil Vote</a>
-                            </nav>
-                        </div>
+
 
 
                         <div class="sb-sidenav-menu-heading">My Account</div>
@@ -105,48 +76,42 @@ $votes = query("SELECT * FROM users");
 
             </nav>
         </div>
-        <!-- sidebar end  -->
-
-
-
-        <!-- content  -->
-        <div id="layoutSidenav_content">
-            <main class="p-4">
-                <div class="container-fluid px-4">
-                    <h1 class="">Data User</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Main Menu</a></li>
-                        <li class="breadcrumb-item active">Data User</li>
-                    </ol>
-                </div>
-                <br>
-                <table class="table table-striped text-center">
-                    <thead>
-                        <tr class="table-dark">
-                            <th scope="col" width="30">No.</th>
-                            <th scope="col">Nama Lengkap</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach ($votes as $vote) : ?>
-                            <tr>
-                                <th scope="row"><?= $i; ?></th>
-                                <td><?= $vote["nama_lengkap"]; ?></td>
-                                <td><?= $vote["username"]; ?></td>
-                                <td><?= $vote["email"]; ?></td>
-                            </tr>
-                            <?php $i++; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </main>
-        </div>
-
     </div>
+    <!-- sidebar end  -->
+
+
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Vote</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Vote</li>
+                </ol>
+            </div>
+    </div>
+
+    <!-- content  -->
+    <div class="card mb-3 ms-5" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Ghaida Fasya</h5>
+                    <p class="card-text"> Prodi : D4 Teknik Informatika</p>
+                    <p class="card-text"> Prodi : D4 Teknik Informatika</p>
+                    <p class="card-text"> Prodi : D4 Teknik Informatika</p>
+                    <button type="button" class="btn btn-primary">Vote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- content end  -->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

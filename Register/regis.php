@@ -39,7 +39,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <title>LOGIN VOTE</title>
+    <title>REGISTER VOTE</title>
 </head>
 
 <body>
@@ -56,7 +56,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="mb-4">
-                                <h3 class="text-center">LOGIN HERE</h3>
+                                <h3 class="text-center">REGISTER HERE</h3>
                                 <p class="mb-4 text-center">Universitas Logistik dan Bisnis Internasinal.</p>
                             </div>
                             <form action="" method="post" class="pb-5">
@@ -82,6 +82,9 @@
                                     <input required name="confirm_password" type="password" class="form-control" id="c-password">
                                 </div>
                                 <hr>
+                                <div class=" mb-5 align-items-center">
+                                    <p class="text-center">Already have an account? <a href="../Login/login.php"> Login</a> here.</p>
+                                </div>
                                 <input name="submit" type="submit" value="Regis" class="btn btn-block btn-primary">
 
                             </form>
