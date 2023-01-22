@@ -1,5 +1,5 @@
 <?php
-require  '../function/function.php';
+require  '../../function/function.php';
 
 
 //Cek apakah tombol sudah ditekan atau belom
@@ -37,7 +37,7 @@ if (isset($_POST["submit"])) {
     <meta name="author" content="" />
     <title>Dashboard Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="../assets/css/dashboard.css" rel="stylesheet" />
+    <link href="../../assets/css/dashboard.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 

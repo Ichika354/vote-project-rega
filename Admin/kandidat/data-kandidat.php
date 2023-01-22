@@ -123,7 +123,7 @@
 
                 
                 <br>
-                <a type="button" class="btn btn-success" href="../config/create/create-kandidat.php">Tambah</a>
+                <a type="button" class="btn btn-success" href="../../config/create/create-kandidat.php">Tambah</a>
                 <hr>
                 
                 <table class="table table-striped text-center">
