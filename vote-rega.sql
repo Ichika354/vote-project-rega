@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2023 at 01:25 PM
+-- Generation Time: Jan 22, 2023 at 05:45 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -57,15 +57,18 @@ CREATE TABLE `users` (
   `nama_lengkap` varchar(250) NOT NULL,
   `username` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
-  `password` varchar(250) NOT NULL
+  `password` varchar(250) NOT NULL,
+  `level` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama_lengkap`, `username`, `email`, `password`) VALUES
-(1, 'M Fachriza Farhan', 'ichika', 'farhan350411@gmail.com', '12345');
+INSERT INTO `users` (`id`, `nama_lengkap`, `username`, `email`, `password`, `level`) VALUES
+(1, 'M Fachriza Farhan', 'ichika', 'farhan350411@gmail.com', '12345', 'admin'),
+(2, 'fachriza', 'miku', 'farhan350411@gmail.com', '$2y$10$/6d/uIq03SznLcREraVKeedaFeEICB8fqZBP9izpJGUvVRv2R/TZ6', 'user'),
+(3, 'ghaida fasya', 'aca', 'handa82624@gmail.com', '$2y$10$hSb.WUmGqIj6JhpWCcZt4OcExhi0WWujnb1Ov.irM3a79n/uiVDgi', 'user');
 
 --
 -- Indexes for dumped tables
@@ -97,7 +100,7 @@ ALTER TABLE `kandidat`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
