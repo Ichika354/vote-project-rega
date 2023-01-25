@@ -1,3 +1,11 @@
+<?php 
+
+    require '../../function/function.php';
+    $students = query("SELECT * FROM kandidat");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,21 +100,26 @@
     </div>
 
     <!-- content  -->
-    <div class="card mb-3 ms-5" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Ghaida Fasya</h5>
-                    <p class="card-text"> Prodi : D4 Teknik Informatika</p>
-                    <p class="card-text"> Prodi : D4 Teknik Informatika</p>
-                    <p class="card-text"> Prodi : D4 Teknik Informatika</p>
-                    <button type="button" class="btn btn-primary">Vote</button>
+    <div class="row w-100 d-flex justify-content-center align-items-center" style="padding-left: 10em;">
+
+    <?php foreach($students as $student) :?>
+        <div class="card mb-3 col-ms-4" style="max-width: 440px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $student["nama_kandidat"]; ?></h5>
+                        <p class="card-text"> Prodi : <?= $student["prodi"]; ?></p>
+                        <p class="card-text"> Jabatan : <?= $student["jabatan"]; ?></p>
+                        <p class="card-text"> Prodi : D4 Teknik Informatika</p>
+                        <button type="button" class="btn btn-primary">Vote</button>
+                    </div>
                 </div>
             </div>
         </div>
+    <?php endforeach; ?>
     </div>
 
     <!-- content end  -->

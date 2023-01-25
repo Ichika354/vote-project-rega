@@ -1,16 +1,16 @@
-<?php 
-    // session_start();
+<?php
+// session_start();
 
-    // $session = isset($_SESSION["login"]);
-    
-    // if (!$session) {
-    //    header("Location: ../../index.php");
-    //     exit;
-    // }
+// $session = isset($_SESSION["login"]);
 
-    require '../../function/function.php';
+// if (!$session) {
+//    header("Location: ../../index.php");
+//     exit;
+// }
 
-    $students = query("SELECT * FROM kandidat");
+require '../../function/function.php';
+
+$students = query("SELECT * FROM kandidat");
 
 
 
@@ -121,41 +121,48 @@
                     </ol>
                 </div>
 
-                
+
                 <br>
                 <a type="button" class="btn btn-success" href="../../config/create/create-kandidat.php">Tambah</a>
                 <hr>
-                
-                <table class="table table-striped text-center">
+                <table class="table table-striped text-center ">
                     <thead>
                         <tr class="table-dark">
-                            <th scope="col" width="30">ID</th>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Nama Kandidat</th>
-                            <th scope="col">Prodi</th>
-                            <th scope="col">Jabatan</th>
-                            <th scope="col">Visi</th>
-                            <th scope="col">Misi</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col" rowspan="2" class="pb-4">ID</th>
+                            <th scope="col" rowspan="2" class="pb-4">Foto</th>
+                            <th scope="col" colspan="2">Pasangan Kandidat</th>
+                            <th scope="col" colspan="2">Prodi</th>
+                            <th scope="col" rowspan="2" class="pb-4">Visi</th>
+                            <th scope="col" rowspan="2" class="pb-4">Misi</th>
+                            <th scope="col" rowspan="2" class="pb-4">Aksi</th>
+                        </tr>
+                        <tr class="table-dark">
+                            <th scope="col">Ketua</th>
+                            <th scope="col">Wakil</th>
+                            <th scope="col">Ketua</th>
+                            <th scope="col">Wakil</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($students as $student) : ?>
-                        <tr>
-                            <th scope="row"><?= $student["id_kandidat"]; ?></th>
-                            <td><img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
-                            <td><?= $student["nama_kandidat"]; ?></td>
-                            <td><?= $student["prodi"]; ?></td>
-                            <td><?= $student["jabatan"]; ?></td>
-                            <td><?= $student["visi"]; ?></td>
-                            <td><?= $student["misi"]; ?></td>
-                            <td>
-                                <!-- <a type="button" class="btn btn-primary" href="">Detail</a> -->
-                                <a type="button" class="btn btn-warning" href="">Edit</a>
-                                <a type="button" class="btn btn-danger" href="">Hapus</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                        <?php foreach ($students as $student) : ?>
+                            <tr>
+                                <th scope="row"><?= $student["id_kandidat"]; ?></th>
+                                <td><img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
+                                <td><?= $student["ketua"]; ?></td>
+                                <td><?= $student["wakil"]; ?></td>
+                                <td><?= $student["prodi_ketua"]; ?></td>
+                                <td><?= $student["prodi_wakil"]; ?></td>
+                                <td><?= $student["visi"]; ?></td>
+                                <td><?= $student["misi"]; ?></td>
+                                <td>
+                                    <a type="button" class="btn btn-warning" href="">Edit</a>
+                                    <hr>
+                                    <a type="button" class="btn btn-danger" href="">Hapus</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+
+
                     </tbody>
                 </table>
             </main>

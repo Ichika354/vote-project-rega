@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2023 at 05:45 PM
+-- Generation Time: Jan 25, 2023 at 12:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -30,9 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `kandidat` (
   `id_kandidat` int(11) NOT NULL,
   `gambar` varchar(250) NOT NULL,
-  `nama_kandidat` varchar(250) NOT NULL,
-  `prodi` varchar(100) NOT NULL,
-  `jabatan` varchar(250) NOT NULL,
+  `ketua` varchar(250) NOT NULL,
+  `wakil` varchar(250) NOT NULL,
+  `prodi_ketua` varchar(100) NOT NULL,
+  `prodi_wakil` varchar(250) NOT NULL,
   `visi` varchar(250) NOT NULL,
   `misi` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -41,10 +42,10 @@ CREATE TABLE `kandidat` (
 -- Dumping data for table `kandidat`
 --
 
-INSERT INTO `kandidat` (`id_kandidat`, `gambar`, `nama_kandidat`, `prodi`, `jabatan`, `visi`, `misi`) VALUES
-(5220001, 'ghaida.jpg', 'Ghaida Fasya Y.A', 'D4 Teknik Informatika', 'Ketua', 'Jajan', 'Tidur'),
-(5220004, '63cd1b2b7430f.jpg', 'M Fachriza Farhan', 'D4 Teknik Informatika', 'Wakil', 'Ngoding', 'Ngoding dulu jagonya belakangan'),
-(5220005, '63cd26c266332.png', 'Daffy Raisan', 'D3 Teknik Informatika', 'Ketua', 'Molor', 'Molor');
+INSERT INTO `kandidat` (`id_kandidat`, `gambar`, `ketua`, `wakil`, `prodi_ketua`, `prodi_wakil`, `visi`, `misi`) VALUES
+(5220001, 'ghaida.jpg', 'Ghaida Fasya Y.A', 'Fachriza', 'D4 Teknik Informatika', 'D4 Manajemen Informatika', 'Jajan', 'Tidur'),
+(5220004, '63cd1b2b7430f.jpg', 'M Fachriza Farhan', 'Reza', 'D4 Teknik Informatika', 'D4 Manajemen Informatika', 'Ngoding', 'Ngoding dulu jagonya belakangan'),
+(5220005, '63cd26c266332.png', 'Daffy Raisan', 'Alfian', 'D3 Teknik Informatika', 'D4 Logistik Bisnis', 'Molor', 'Molor');
 
 -- --------------------------------------------------------
 
