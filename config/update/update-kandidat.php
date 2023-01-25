@@ -1,31 +1,3 @@
-<?php
-require  '../../function/function.php';
-
-
-//Cek apakah tombol sudah ditekan atau belom
-if (isset($_POST["submit"])) {
-
-    // var_dump($_POST);
-    // var_dump($_FILES);
-    // die;
-
-    if (tambah($_POST) > 0) {
-        echo
-        "<script>
-                alert('Kandidat berhasil ditambahkan');
-                window.location.href = '../../kandidat/data-kandidat.php';
-            </script>";
-    } else {
-        echo
-        "<script>
-                alert('Kandidat gagal ditambahkan :( ');
-            </script>";
-    }
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,10 +48,10 @@ if (isset($_POST["submit"])) {
 
     <!-- judul  -->
     <div class="col-md-10 p-5 pt-5"><br>
-        <h3><i class="fa-solid fa-clipboard"></i> TAMBAH KANDIDAT </h3>
+        <h3><i class="fa-solid fa-clipboard"></i> UBAH KANDIDAT </h3>
         <hr>
         <div class="col-md-10 p-1 pt-3 text-secondary">
-            <h6> Tambah Kandidat</h6>
+            <h6> Ubah Kandidat</h6>
         </div>
         <!-- judul end  -->
 

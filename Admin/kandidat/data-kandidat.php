@@ -155,7 +155,7 @@ $students = query("SELECT * FROM kandidat");
                                 <td><?= $student["visi"]; ?></td>
                                 <td><?= $student["misi"]; ?></td>
                                 <td>
-                                    <a type="button" class="btn btn-warning" href="">Edit</a>
+                                    <a type="button" class="btn btn-warning" href="../../config/update/update-kandidat.php">Edit</a>
                                     <hr>
                                     <a type="button" class="btn btn-danger" href="">Hapus</a>
                                 </td>
