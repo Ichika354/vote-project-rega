@@ -15,9 +15,10 @@
     function tambah($data) {
         global $connect;
     
-        $nama_kandidat = htmlspecialchars($data["nama_kandidat"]) ;
-        $prodi = ($data["prodi"]);
-        $jabatan = ($data["jabatan"]);
+        $ketua = htmlspecialchars($data["ketua"]) ;
+        $wakil = ($data["wakil"]);
+        $prodi_ketua = ($data["prodi_ketua"]);
+        $prodi_wakil = htmlspecialchars($data["prodi_wakil"]);
         $visi = htmlspecialchars($data["visi"]);
         $misi = htmlspecialchars($data["misi"]);
     
@@ -31,7 +32,7 @@
         
     
         //query insert
-        $query = "INSERT INTO kandidat VALUES ('' , '$gambar', '$nama_kandidat' ,'$prodi' , '$jabatan', '$visi', '$misi')";
+        $query = "INSERT INTO kandidat VALUES ('' , '$gambar', '$ketua' ,'$wakil' , '$prodi_ketua', '$prodi_wakil', '$visi', '$misi')";
         mysqli_query($connect, $query);
     
         return mysqli_affected_rows($connect);
@@ -122,3 +123,6 @@
 
 
 ?>
+
+
+
