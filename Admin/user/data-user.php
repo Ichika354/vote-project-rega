@@ -104,7 +104,7 @@ $votes = query("SELECT * FROM users");
                 </div>
 
             </nav>
-        </div>
+        </div>  
         <!-- sidebar end  -->
 
 
