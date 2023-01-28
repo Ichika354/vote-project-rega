@@ -8,20 +8,7 @@
 //     exit;
 // }
 
-
-require '../../function/function.php';
-
-$data_user = mysqli_query($connect, "SELECT * FROM users");
-$data_kandidat = mysqli_query($connect, "SELECT * FROM kandidat");
-
-$jumlah_user = mysqli_num_rows($data_user);
-$jumlah_kandidat = mysqli_num_rows($data_kandidat);
-
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +18,8 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <title>Admin-Laporan Vote</title>
+
     <title>Dashboard Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="../../assets/css/dashboard.css" rel="stylesheet" />
@@ -115,49 +104,48 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
 
 
 
+        <!-- content  -->
         <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4 d-flex justify-content-center align-items-center mt-5">
-                    <div class="row w-100 d-flex justify-content-center align-items-center mt-5" style="padding-left: 5em;">
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 w-75">
-                            <div class="card p-2 shadow">
-                                <div class="d-flex align-items-center px-2">
-                                    <img src="" alt="">
-                                    <div class="card-body text-end">
-                                        <ul class="card-title text-center navbar-nav">
-                                            <li>Admin</li>
-                                            <li>Project Tugas Besar</li>
-                                            <li>23 Desember 2022</li>
-                                        </ul>
+            <main class="p-4">
+                <div class="container-fluid px-4">
+                    <h1 class="">Profile</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active">My Account</a></li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ol>
+                </div>
+                <br>
+                <div class="main-pages">
+                    <div class="container-fluid">
+                        <div class="row g-2 mb-3">
+                            <div class="col-12">
+                                <div class="d-block bg-white rounded shadow p-3">
+                                    <h4>My Project Team</h4>
+                                    <hr>
+                                    <div class="container text-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <img src="../../assets/images/profile/girl.png" width="100" height="100" class="rounded float-start" alt="...">
+                                                Ghaida Fasya Y.A <br> D4-Teknik Informatika <br> 1B
+                                            </div>
+                                            <div class="col">
+                                                <img src="../../assets/images/profile/boy.png" width="100" height="100" class="rounded float-start" alt="...">
+                                                M. Fachriza Farhan <br> D4-Teknik Informatika <br> 1A
+
+                                            </div>
+
+                                        </div>
+
                                     </div>
-                                </div>
-                                <div class="card-footer bg-white">
-                                    <small class="text-start fw-bold">Admin Profile</small>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 w-75 mt-5">
-                            <div class="card p-2 shadow">
-                                <div class="d-flex align-items-center px-2">
-                                    <img src="" alt="">
-                                    <div class="card-body text-end">
-                                        <ul class="card-title text-center navbar-nav">
-                                            <li>Admin</li>
-                                            <li>Project Tugas Besar</li>
-                                            <li>23 Desember 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-white">
-                                    <small class="text-start fw-bold">Admin Profile</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- content end  -->
+
             </main>
         </div>
-    </div>
+
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -167,3 +155,5 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
 </body>
+
+</html>
