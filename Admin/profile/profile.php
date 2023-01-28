@@ -7,8 +7,26 @@
 //    header("Location: ../../index.php");
 //     exit;
 // }
+<<<<<<< HEAD
 ?>
 
+=======
+
+
+require '../../function/function.php';
+
+$data_user = mysqli_query($connect, "SELECT * FROM users");
+$data_kandidat = mysqli_query($connect, "SELECT * FROM kandidat");
+
+$jumlah_user = mysqli_num_rows($data_user);
+$jumlah_kandidat = mysqli_num_rows($data_kandidat);
+
+
+
+?>
+
+
+>>>>>>> a4713fe144c9602709b2fdfd9de1383c09d98c47
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +36,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+<<<<<<< HEAD
     <title>Admin-Laporan Vote</title>
+=======
+    <title>Dashboard Admin</title>
+>>>>>>> a4713fe144c9602709b2fdfd9de1383c09d98c47
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="../../assets/css/dashboard.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -102,6 +124,7 @@
 
 
 
+<<<<<<< HEAD
         <!-- content  -->
         <div id="layoutSidenav_content">
             <main class="p-4">
@@ -143,6 +166,51 @@
             </main>
         </div>
 
+=======
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4 d-flex justify-content-center align-items-center mt-5">
+                    <div class="row w-100 d-flex justify-content-center align-items-center mt-5" style="padding-left: 5em;">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 w-75">
+                            <div class="card p-2 shadow">
+                                <div class="d-flex align-items-center px-2">
+                                    <img src="" alt="">
+                                    <div class="card-body text-end">
+                                        <ul class="card-title text-center navbar-nav">
+                                            <li>Admin</li>
+                                            <li>Project Tugas Besar</li>
+                                            <li>23 Desember 2022</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <small class="text-start fw-bold">Admin Profile</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 w-75 mt-5">
+                            <div class="card p-2 shadow">
+                                <div class="d-flex align-items-center px-2">
+                                    <img src="" alt="">
+                                    <div class="card-body text-end">
+                                        <ul class="card-title text-center navbar-nav">
+                                            <li>Admin</li>
+                                            <li>Project Tugas Besar</li>
+                                            <li>23 Desember 2022</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <small class="text-start fw-bold">Admin Profile</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content end  -->
+            </main>
+        </div>
+    </div>
+>>>>>>> a4713fe144c9602709b2fdfd9de1383c09d98c47
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

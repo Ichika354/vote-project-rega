@@ -147,7 +147,7 @@ $students = query("SELECT * FROM kandidat");
                         <?php foreach ($students as $student) : ?>
                             <tr>
                                 <th scope="row"><?= $student["id_kandidat"]; ?></th>
-                                <td><img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" width="60" height="40" alt=""></td>
+                                <td><img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" width="70" height="80" alt=""></td>
                                 <td><?= $student["ketua"]; ?></td>
                                 <td><?= $student["wakil"]; ?></td>
                                 <td><?= $student["prodi_ketua"]; ?></td>

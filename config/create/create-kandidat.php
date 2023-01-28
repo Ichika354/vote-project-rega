@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
         echo
         "<script>
                 alert('Kandidat berhasil ditambahkan');
-                window.location.href = '../../kandidat/data-kandidat.php';
+                window.location.href = '../../Admin/kandidat/data-kandidat.php';
             </script>";
     } else {
         echo
@@ -90,11 +90,11 @@ if (isset($_POST["submit"])) {
                 <h6>Data Kandidat</h6>
                 <label for="ketua" class="form-label text-dark">Ketua Kandidat</label>
                 <input type="text" name="ketua" id="ketua" required class="form-control" placeholder="ketua kandidat...">
-                
+
                 <label for="wakil" class="form-label text-dark">Wakil Kandidat</label>
                 <input type="text" name="wakil" id="wakil" required class="form-control" placeholder="wakil kandidat...">
             </div>
-            
+
             <h6>Program Studi</h6>
             <label for="prodi_ketua" class="form-label text-dark">Prodi Ketua</label>
             <select class="form-select" name="prodi_ketua" aria-label="Default select example">
@@ -128,7 +128,7 @@ if (isset($_POST["submit"])) {
 
             <br>
 
-    
+
 
             <div class="mb-2">
                 <label for="visi" class="form-label">Visi</label>
