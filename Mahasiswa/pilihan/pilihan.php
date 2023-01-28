@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: ../../index.php");
+    exit;
+}
+
 
 require '../../function/function.php';
 $students = query("SELECT * FROM kandidat");
@@ -32,12 +39,15 @@ $students = query("SELECT * FROM kandidat");
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <!-- <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search here..." aria-label="Search here." aria-describedby="btnNavbarSearch" />
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
-        </form>
+        </form> -->
+        <div class="navbar-brand title text-white ms-auto d-flex justify-content-center align-items-center">
+            <p class="mb-0">Halooo <?= $_SESSION["user"] ?></p>
+        </div>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
@@ -47,16 +57,16 @@ $students = query("SELECT * FROM kandidat");
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="../Login/login.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">Logout</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
     <?php
-    // $username = $_SESSION["user"];
-    // $queryUser = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
-    // $profile = mysqli_fetch_array($queryUser);
+    $username = $_SESSION["user"];
+    $queryUser = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
+    $profile = mysqli_fetch_assoc($queryUser);
 
 
     ?>
@@ -87,7 +97,7 @@ $students = query("SELECT * FROM kandidat");
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../../Login/login.php">
+                        <a class="nav-link" href="../../Login/logout.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>
@@ -104,11 +114,11 @@ $students = query("SELECT * FROM kandidat");
     <div id="layoutSidenav_content">
         <main>
             <br><br><br>
-            
+
             <h1 class="text-center">SILAHKAN VOTE</h1>
             <hr><br>
             <!-- <center><button type="button" href="../../Mahasiswa/vote/vote.php" class="btn btn-secondary">Kembali</button></center> -->
-            
+
             <!-- content  -->
             <div class="row w-100 d-flex justify-content-center align-items-center" style="padding-left: 10em;">
                 <?php foreach ($students as $student) : ?>
@@ -125,11 +135,8 @@ $students = query("SELECT * FROM kandidat");
                                     <p> <?= $student["ketua"]; ?></p>
                                     <h6 class="card-text"> Wakil :</h6>
                                     <p><?= $student["wakil"]; ?></p>
-                                    <!-- <p class="card-text"> Prodi : </p>
-                                    <p class="card-text"> Jabatan : </p>
-                                    <p class="card-text"> Prodi : D4 Teknik Informatika</p> -->
                                     <button type="button" class="btn btn-success">Vote</button>
-                                    <button type="button" href="#detail" data-bs-toggle="modal" class="btn btn-primary">Detail</button>
+                                    <a href="#detail?id=<?= $student["id_kandidat"]; ?>" data-bs-toggle="modal" class="btn btn-primary">Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +146,12 @@ $students = query("SELECT * FROM kandidat");
         </main>
     </div>
     <!-- content end  -->
+
+    <?php
+    $id = $_GET["id"];
+    $data = query("SELECT * FROM kandidat WHERE id_kandidat = $id")[0];
+    ?>
+
 
     <div class="modal" tabindex="-1" id="detail">
         <div class="modal-dialog">
@@ -150,9 +163,10 @@ $students = query("SELECT * FROM kandidat");
 
                 <fieldset disabled>
                     <div class="modal-body">
+                        <input type="hidden" name="id" value="<?= $data["id"] ?>">
                         <h6 for="visi" class="form-label">Nama Kandidat</h6>
                         <label class="modal-title">Ketua</label>
-                        <input type="text" name="ketua" class="form-control" id="ketua">
+                        <input type="text" name="ketua" value="<?= $data["ketua"] ?>" class="form-control" id="ketua">
                         <label class="modal-title">Wakil</label>
                         <input type="text" name="wakil" class="form-control" id="ketua">
                         <br>
@@ -187,17 +201,47 @@ $students = query("SELECT * FROM kandidat");
 
     <div class="modal" tabindex="-1" id="profile">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <!-- <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Profile</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <label for=""></label>
                     <input type="text" readonly value=": <?= $profile["username"]; ?>">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div> -->
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="modal-header">
+                    <h5 class="card-title">Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body ">
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Username</label>
+                                <input type="text" name="ketua" value=": <?= $profile["username"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Nama Lengkap</label>
+                                <input type="text" name="ketua" value=": <?= $profile["nama_lengkap"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Email</label>
+                                <input type="text" name="ketua" value=": <?= $profile["email"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Alamat</label>
+                                <input type="text" name="ketua" value=": <?= $profile["email"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

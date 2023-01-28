@@ -1,12 +1,12 @@
 <?php
-// session_start();
+session_start();
 
-// $session = isset($_SESSION["login"]);
+if (!isset($_SESSION["admin"])) {
+    header("Location: ../../index.php");
+    exit;
+}
 
-// if (!$session) {
-//    header("Location: ../../index.php");
-//     exit;
-// }
+
 
 
 require '../../function/function.php';
@@ -62,7 +62,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="../Login/login.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../Login/logout.php">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -102,14 +102,14 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../Login/login.php">
+                        <a class="nav-link" href="../../Login/logout.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>
                     </div>
                 </div>
 
-            </nav>  
+            </nav>
         </div>
         <!-- sidebar end  -->
 
@@ -126,7 +126,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                             <div class="card p-2 shadow">
                                 <div class="d-flex align-items-center px-2">
-                                <i class="fa fa-users float-start fa-3x py-auto" aria-hidden="true"></i>
+                                    <i class="fa fa-users float-start fa-3x py-auto" aria-hidden="true"></i>
                                     <div class="card-body text-end">
                                         <h5 class="card-title"><?= $jumlah_user; ?></h5>
                                         <p class="card-text">Data User</p>
@@ -140,7 +140,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                             <div class="card p-2 shadow">
                                 <div class="d-flex align-items-center px-2">
-                                <i class="fa fa-user float-start fa-3x py-auto" aria-hidden="true"></i>
+                                    <i class="fa fa-user float-start fa-3x py-auto" aria-hidden="true"></i>
                                     <div class="card-body text-end">
                                         <h5 class="card-title"><?= $jumlah_kandidat ?></h5>
                                         <p class="card-text">Data Kandidat</p>
@@ -154,7 +154,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                             <div class="card p-2 shadow">
                                 <div class="d-flex align-items-center px-2">
-                                <i class="fa fa-box float-start fa-3x py-auto" aria-hidden="true"></i>
+                                    <i class="fa fa-box float-start fa-3x py-auto" aria-hidden="true"></i>
                                     <div class="card-body text-end">
                                         <h5 class="card-title"><?= 1; ?></h5>
                                         <p class="card-text">Laporan Vote</p>
@@ -165,7 +165,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
         </div>

@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: ../../index.php");
+    exit;
+}
+
 require '../../function/function.php';
 $students = query("SELECT * FROM kandidat");
 
@@ -37,12 +44,9 @@ $students = query("SELECT * FROM kandidat");
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search here..." aria-label="Search here." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-            </div>
-        </form>
+        <div class="navbar-brand title text-white ms-auto d-flex justify-content-center align-items-center">
+            <p class="mb-0">Halooo <?= $_SESSION["user"] ?></p>
+        </div>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
@@ -52,7 +56,7 @@ $students = query("SELECT * FROM kandidat");
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="../Login/login.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -96,7 +100,7 @@ $students = query("SELECT * FROM kandidat");
 
         <div class="card text-center h">
             <div class="card-header">
-                E-Voting Presma ULBI 
+                E-Voting Presma ULBI
             </div>
             <div class="card-body">
                 <h5 class="card-title"> VOTE </h5>

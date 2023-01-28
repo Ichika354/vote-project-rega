@@ -1,12 +1,13 @@
 <?php
-// session_start();
+session_start();
 
-// $session = isset($_SESSION["login"]);
+if (isset($_SESSION["login"])) {
+    header("Location: ../Mahasiswa/vote/vote.php");
+} elseif (isset($_SESSION["admin"])) {
+    header("Location: ../Admin/dashboard/dashboard.php");
+}
 
-// if ($session) {
-//    header("Location: ../Admin/dashboard/dashboard.php");
-//     exit;
-// }
+
 
 require '../function/function.php';
 
@@ -24,11 +25,11 @@ if (isset($_POST["submit"])) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
             //set session
-            // $_SESSION["login"] = true;
+            $_SESSION["login"] = true;
             $_SESSION["user"] = $username;
             echo "<script>
                         window.location.href = '../Mahasiswa/vote/vote.php'
-                    </script>";
+                        </script>";
             exit;
         }
     }
@@ -42,7 +43,7 @@ if (isset($_POST["submit"])) {
         $data = mysqli_fetch_assoc($result2);
 
         if ($data["level"] === "admin") {
-
+            $_SESSION["admin"] = true;
             echo "<script>
                     window.location.href = '../Admin/dashboard/dashboard.php'
                 </script>";

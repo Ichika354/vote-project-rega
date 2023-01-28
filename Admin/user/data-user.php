@@ -1,13 +1,11 @@
 <?php
 
-// session_start();
+session_start();
 
-// $session = isset($_SESSION["login"]);
-
-// if (!$session) {
-//     header("Location: ../../index.php");
-//     exit;
-// }
+if (!isset($_SESSION["admin"])) {
+    header("Location: ../../index.php");
+    exit;
+}
 
 require '../../function/function.php';
 
@@ -56,7 +54,7 @@ $votes = query("SELECT * FROM users");
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="../Login/login.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../Login/logout.php">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -96,7 +94,7 @@ $votes = query("SELECT * FROM users");
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../Login/login.php">
+                        <a class="nav-link" href="../../Login/logout.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>
