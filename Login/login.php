@@ -25,8 +25,9 @@ if (isset($_POST["submit"])) {
         if (password_verify($password, $row["password"])) {
             //set session
             // $_SESSION["login"] = true;
+            $_SESSION["user"] = $username;
             echo "<script>
-                        window.location.href = ''
+                        window.location.href = '../Mahasiswa/vote/vote.php'
                     </script>";
             exit;
         }

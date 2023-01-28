@@ -43,7 +43,7 @@ $students = query("SELECT * FROM kandidat");
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="../Admin/profile.php">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#profile " data-bs-toggle="modal">My Profile</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -52,6 +52,18 @@ $students = query("SELECT * FROM kandidat");
             </li>
         </ul>
     </nav>
+
+    <?php
+    // $username = $_SESSION["user"];
+    // $queryUser = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
+    // $profile = mysqli_fetch_array($queryUser);
+
+
+    ?>
+
+
+
+
     <!-- navbar end -->
 
 
@@ -102,7 +114,7 @@ $students = query("SELECT * FROM kandidat");
             <div class="row w-100 d-flex justify-content-center align-items-center" style="padding-left: 10em;">
 
                 <?php foreach ($students as $student) : ?>
-                    <div class="card mb-3 col-ms-4" style="max-width: 2200px;">
+                    <div class="card mb-3 col-ms-4" style="max-width: 1000px;">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" class="img-fluid rounded-start" alt="...">
@@ -125,6 +137,23 @@ $students = query("SELECT * FROM kandidat");
 
     <!-- content end  -->
 
+    <div class="modal" tabindex="-1" id="profile">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" readonly value=": <?= $profile["username"]; ?>">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
