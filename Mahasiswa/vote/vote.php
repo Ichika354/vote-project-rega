@@ -21,6 +21,11 @@ $students = query("SELECT * FROM kandidat");
     <link rel="stylesheet" href="../../assets/css/style.css">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
+<style>
+    .h {
+        width: 50%;
+    }
+</style>
 
 <!-- content navbar  -->
 
@@ -52,18 +57,6 @@ $students = query("SELECT * FROM kandidat");
             </li>
         </ul>
     </nav>
-
-    <?php
-    // $username = $_SESSION["user"];
-    // $queryUser = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
-    // $profile = mysqli_fetch_array($queryUser);
-
-
-    ?>
-
-
-
-
     <!-- navbar end -->
 
 
@@ -75,19 +68,17 @@ $students = query("SELECT * FROM kandidat");
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Main Menu</div>
-                        <a class="nav-link" href="../Admin/dashboard.php">
+                        <a class="nav-link" href="../../Mahasiswa/vote/vote.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Vote
                         </a>
 
-
-
                         <div class="sb-sidenav-menu-heading">My Account</div>
-                        <a class="nav-link" href="../profile/profile.php">
+                        <a class="nav-link" href="../../Mahasiswa/profile/profile.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../Login/login.php">
+                        <a class="nav-link" href="../../Login/login.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>
@@ -99,61 +90,27 @@ $students = query("SELECT * FROM kandidat");
     </div>
     <!-- sidebar end  -->
 
+    <!-- content  -->
+    <br><br><br><br><br><br><br><br>
+    <div class="d-flex justify-content-center align-items-center">
 
-
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="container-fluid px-4">
-                <h1 class="mt-4">Vote</h1>
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Vote</li>
-                </ol>
+        <div class="card text-center h">
+            <div class="card-header">
+                E-Voting Presma ULBI 
             </div>
-
-            <!-- content  -->
-            <div class="row w-100 d-flex justify-content-center align-items-center" style="padding-left: 10em;">
-
-                <?php foreach ($students as $student) : ?>
-                    <div class="card mb-3 col-ms-4" style="max-width: 1000px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ketua : <?= $student["ketua"]; ?> & <?= $student["wakil"]; ?></h5>
-                                    <p class="card-text"> Prodi : </p>
-                                    <p class="card-text"> Jabatan : </p>
-                                    <p class="card-text"> Prodi : D4 Teknik Informatika</p>
-                                    <button type="button" class="btn btn-primary">Vote</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+            <div class="card-body">
+                <h5 class="card-title"> VOTE </h5>
+                <p class="card-text"><i>Semua orang berhak memilih dan dipilih.</i></p>
+                <a href="../../Mahasiswa/pilihan/pilihan.php" class="btn btn-dark">Vote Disini</a>
             </div>
-        </main>
-    </div>
-
-    <!-- content end  -->
-
-    <div class="modal" tabindex="-1" id="profile">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Profile</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" readonly value=": <?= $profile["username"]; ?>">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+            <div class="card-footer text-muted">
+                Universitas Logistik dan Bisnis Internasional
             </div>
         </div>
     </div>
+    <!-- content end  -->
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
