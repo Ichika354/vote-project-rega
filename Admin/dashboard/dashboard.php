@@ -109,7 +109,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                     </div>
                 </div>
 
-            </nav>
+            </nav>  
         </div>
         <!-- sidebar end  -->
 
@@ -133,7 +133,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                                     </div>
                                 </div>
                                 <div class="card-footer bg-white">
-                                    <a class="small text-dark text-start fw-bold stretched-link" href="../Admin/data-user.php">View Details</a>
+                                    <a class="small text-dark text-start fw-bold stretched-link" href="../../Admin/user/data-user.php">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                                     </div>
                                 </div>
                                 <div class="card-footer bg-white">
-                                    <a class="small text-dark text-start fw-bold stretched-link" href="../Admin/data-user.php">View Details</a>
+                                    <a class="small text-dark text-start fw-bold stretched-link" href="../../Admin/kandidat/data-kandidat.php">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                                     </div>
                                 </div>
                                 <div class="card-footer bg-white">
-                                    <a class="small text-dark text-start fw-bold stretched-link" href="../Admin/data-user.php">View Details</a>
+                                    <a class="small text-dark text-start fw-bold stretched-link" href="../../Admin/laporan/laporan-hasil-vote.php">View Details</a>
                                 </div>
                             </div>
                         </div>

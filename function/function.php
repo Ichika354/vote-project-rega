@@ -111,8 +111,7 @@
         $password = password_hash($password, PASSWORD_DEFAULT);
     
         //tambahkan userbaru ke database
-        mysqli_query($connect, "INSERT INTO users VALUES('','$nama_lengkap', '$username','$email', 
-        '$password', 'user')");
+        mysqli_query($connect, "INSERT INTO users VALUES('','$nama_lengkap', '$username','$email', '$password', 'user')");
     
         return mysqli_affected_rows($connect);
     

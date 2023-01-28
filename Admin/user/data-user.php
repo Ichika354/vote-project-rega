@@ -72,7 +72,7 @@ $votes = query("SELECT * FROM users");
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="../../Admin/dashboard/dashboard.php">+++8
+                        <a class="nav-link" href="../../Admin/dashboard/dashboard.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
