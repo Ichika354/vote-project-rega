@@ -10,6 +10,9 @@ if (!isset($_SESSION["login"])) {
 require '../../function/function.php';
 $students = query("SELECT * FROM kandidat");
 
+$username = $_SESSION["user"];
+$queryUser = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
+$profile = mysqli_fetch_assoc($queryUser);
 
 ?>
 
@@ -52,7 +55,7 @@ $students = query("SELECT * FROM kandidat");
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#profile " data-bs-toggle="modal">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#profile" data-bs-toggle="modal">My Profile</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -82,7 +85,7 @@ $students = query("SELECT * FROM kandidat");
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../../Login/login.php">
+                        <a class="nav-link" href="../../Login/logout.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>
@@ -114,6 +117,39 @@ $students = query("SELECT * FROM kandidat");
     </div>
     <!-- content end  -->
 
+    <div class="modal" tabindex="-1" id="profile">
+        <div class="modal-dialog">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="modal-header">
+                    <h5 class="card-title">Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body ">
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Username</label>
+                                <input type="text" name="ketua" value=": <?= $profile["username"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Nama Lengkap</label>
+                                <input type="text" name="ketua" value=": <?= $profile["nama_lengkap"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Email</label>
+                                <input type="text" name="ketua" value=": <?= $profile["email"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+                            <div class="profile d-flex justify-content-center align-items-center ">
+                                <label class="modal-title w-75">Alamat</label>
+                                <input type="text" name="ketua" value=": <?= $profile["email"]; ?>" class="form-control" id="ketua" style="border: none;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -14,9 +14,10 @@ require '../function/function.php';
 if (isset($_POST["submit"])) {
 
     $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $result = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
+    $result = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username' AND email = '$email'");
 
     //cek username
     if (mysqli_num_rows($result) === 1) {
@@ -98,7 +99,7 @@ if (isset($_POST["submit"])) {
                                 <h3 class="text-center">LOGIN HERE</h3>
                                 <p class="mb-4 text-center">Universitas Logistik dan Bisnis Internasinal.</p>
                                 <?php if (isset($error)) : ?>
-                                    <p class="text-danger">Username atau password salah</p>
+                                    <p class="text-danger">Username,password atau email salah</p>
                                 <?php endif; ?>
                             </div>
                             <form action="" method="post">

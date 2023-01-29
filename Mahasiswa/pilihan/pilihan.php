@@ -136,7 +136,7 @@ $students = query("SELECT * FROM kandidat");
                                     <h6 class="card-text"> Wakil :</h6>
                                     <p><?= $student["wakil"]; ?></p>
                                     <button type="button" class="btn btn-success">Vote</button>
-                                    <a href="#detail?id=<?= $student["id_kandidat"]; ?>" data-bs-toggle="modal" class="btn btn-primary">Detail</a>
+                                    <a href="#detail" data-bs-toggle="modal" class="btn btn-primary">Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -148,8 +148,7 @@ $students = query("SELECT * FROM kandidat");
     <!-- content end  -->
 
     <?php
-    $id = $_GET["id"];
-    $data = query("SELECT * FROM kandidat WHERE id_kandidat = $id")[0];
+
     ?>
 
 

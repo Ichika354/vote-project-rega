@@ -16,7 +16,7 @@
         global $connect;
     
         $ketua = htmlspecialchars($data["ketua"]) ;
-        $wakil = ($data["wakil"]);
+        $wakil = htmlspecialchars($data["wakil"]);
         $prodi_ketua = ($data["prodi_ketua"]);
         $prodi_wakil = htmlspecialchars($data["prodi_wakil"]);
         $visi = htmlspecialchars($data["visi"]);
