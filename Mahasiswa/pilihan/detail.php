@@ -37,7 +37,7 @@ $students = query("SELECT * FROM kandidat");
         <!-- <img src="../assets/images/logo/logo.png" class="ms-3" alt="" width="40" height="40"> -->
         <a class="navbar-brand ps-3" href="index.html">Mahasiswa</a>
         <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button> -->
         <!-- Navbar Search-->
         <!-- <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
@@ -70,126 +70,73 @@ $students = query("SELECT * FROM kandidat");
 
 
     ?>
-
-
-
-
     <!-- navbar end -->
 
 
 
-    <!-- sidebar  -->
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Main Menu</div>
-                        <a class="nav-link" href="../../Mahasiswa/vote/vote.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Vote
-                        </a>
 
-
-
-                        <div class="sb-sidenav-menu-heading">My Account</div>
-                        <a class="nav-link" href="../profile/profile.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Profile
-                        </a>
-                        <a class="nav-link" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Log out
-                        </a>
-                    </div>
-                </div>
-
-            </nav>
+    <!-- judul  -->
+    <div class="col-md-10 p-5 pt-5"><br>
+        <h3><i class="fa-solid fa-clipboard"></i> DETAIL KANDIDAT </h3>
+        <hr>
+        <div class="col-md-10 p-1 pt-3 text-secondary">
+            <h6> Detail Kandidat</h6>
         </div>
-    </div>
-    <!-- sidebar end  -->
+        <!-- judul end  -->
 
 
-
-    <div id="layoutSidenav_content">
-        <main>
-            <br><br><br>
-
-            <h1 class="text-center">SILAHKAN VOTE</h1>
-            <hr><br>
-            <!-- <center><button type="button" href="../../Mahasiswa/vote/vote.php" class="btn btn-secondary">Kembali</button></center> -->
-
-            <!-- content  -->
-            <div class="row w-100 d-flex justify-content-center align-items-center" style="padding-left: 10em;">
-                <?php foreach ($students as $student) : ?>
-
-                    <div class="card mb-3 col-ms-4" style="max-width: 1000px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Pasangan Kandidat</h5>
-                                    <h6 class="card-text"> Ketua :</h6>
-                                    <p> <?= $student["ketua"]; ?></p>
-                                    <h6 class="card-text"> Wakil :</h6>
-                                    <p><?= $student["wakil"]; ?></p>
-                                    <button type="button" class="btn btn-success">Vote</button>
-                                    <a href="../../Mahasiswa/pilihan/detail.php" class="btn btn-primary">Detail</a>
-                                </div>
-                            </div>
-                        </div>
+        <!-- content  -->
+        <form action="" method="post" enctype="multipart/form-data">
+        <img src="../../assets/images/profile/girl.png" width="200" height="200" class="rounded mx-auto d-block" alt="...">
+            <br>
+            <div class="row">
+                <h6>Nama Kandidat</h6>
+                <div class="col">
+                        <label for="ketua" class="form-label text-dark">Ketua</label>
+                        <input type="text" class="form-control">
                     </div>
-                <?php endforeach; ?>
+                    <div class="col">
+                    <label for="wakil" class="form-label text-dark">Wakil</label>
+                    <input type="text" class="form-control">
+                </div>
             </div>
-        </main>
+            <br>
+            <div class="row">
+                <h6>Program Studi</h6>
+                <div class="col">
+                        <label for="ketua" class="form-label text-dark">Ketua</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col">
+                    <label for="wakil" class="form-label text-dark">Wakil</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <h6>Visi dan Misi</h6>
+                <div class="col">
+                        <label for="visi" class="form-label text-dark">Visi</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col">
+                    <label for="misi" class="form-label text-dark">Misi</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        
+
+        <br>
+            <a href="../../Mahasiswa/pilihan/pilihan.php" class="btn btn-secondary">Kembali</a>
+        </form>
+        <!-- content end  -->
+
+
     </div>
     <!-- content end  -->
 
-    <?php
-
-    ?>
 
 
-    <div class="modal" tabindex="-1" id="detail">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Detail Kandidat</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <fieldset disabled>
-                    <div class="modal-body">
-                        <input type="hidden" name="id" value="<?= $data["id"] ?>">
-                        <h6 for="visi" class="form-label">Nama Kandidat</h6>
-                        <label class="modal-title">Ketua</label>
-                        <input type="text" name="ketua" value="<?= $data["ketua"] ?>" class="form-control" id="ketua">
-                        <label class="modal-title">Wakil</label>
-                        <input type="text" name="wakil" class="form-control" id="ketua">
-                        <br>
-                        <h6 for="visi" class="form-label">Prodi Kandidat</h6>
-                        <label class="modal-title">Ketua</label>
-                        <input type="text" name="ketua" class="form-control" id="ketua">
-                        <label class="modal-title">Wakil</label>
-                        <input type="text" name="ketua" class="form-control" id="ketua">
-                        <br>
-                        <h6 for="visi" class="form-label">Visi dan Misi</h6>
-                        <label class="modal-title">Visi</label>
-                        <input type="text" name="ketua" class="form-control" id="ketua">
-                        <label class="modal-title">Misi</label>
-                        <input type="text" name="ketua" class="form-control" id="ketua">
-                    </div>
-                </fieldset>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -200,7 +147,7 @@ $students = query("SELECT * FROM kandidat");
 
     <div class="modal" tabindex="-1" id="profile">
         <div class="modal-dialog">
-            
+
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="modal-header">
                     <h5 class="card-title">Profile</h5>
