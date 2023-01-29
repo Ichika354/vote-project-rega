@@ -54,7 +54,7 @@ $votes = query("SELECT * FROM users");
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="../../Login/logout.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -94,7 +94,7 @@ $votes = query("SELECT * FROM users");
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../../Login/logout.php">
+                        <a class="nav-link" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>

@@ -1,3 +1,35 @@
+<?php
+require  '../../function/function.php';
+
+//Ambil data dari url
+$id = $_GET["id"];
+
+// Query data mahasiswa bedasarkan id
+$student = query("SELECT * FROM kandidat WHERE id_kandidat = $id")[0];
+
+
+
+
+//Cek apakah tombol sudah ditekan atau belom
+if (isset($_POST["submit"])) {
+
+    // Cek apakah data sudah berhasil di ubah atau belum
+    if (ubah($_POST) > 0) {
+        echo
+        "<script>
+            alert('Data berhasil diubah');
+            window.location.href = '../../Admin/kandidat/data-kandidat.php';
+        </script>";
+    } else {
+        echo
+        "<script>
+            alert('Data gagal diubah :( ');
+        </script>";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,15 +90,17 @@
 
         <!-- content  -->
         <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id_kandidat" value="<?= $student["id_kandidat"]; ?>">
+            <input type="hidden" name="gambarLama" value="<?= $student["gambar"]; ?>">
             <div class="mb-3">
                 <h6>Data Kandidat</h6>
                 <label for="ketua" class="form-label text-dark">Ketua Kandidat</label>
-                <input type="text" name="ketua" id="ketua" required class="form-control" placeholder="ketua kandidat...">
-                
+                <input type="text" name="ketua" id="ketua" required value="<?= $student["ketua"]; ?>" class="form-control" placeholder="ketua kandidat...">
+
                 <label for="wakil" class="form-label text-dark">Wakil Kandidat</label>
-                <input type="text" name="wakil" id="wakil" required class="form-control" placeholder="wakil kandidat...">
+                <input type="text" name="wakil" id="wakil" required value="<?= $student["wakil"]; ?>" class="form-control" placeholder="wakil kandidat...">
             </div>
-            
+
             <h6>Program Studi</h6>
             <label for="prodi_ketua" class="form-label text-dark">Prodi Ketua</label>
             <select class="form-select" name="prodi_ketua" aria-label="Default select example">
@@ -100,21 +134,24 @@
 
             <br>
 
-    
+
 
             <div class="mb-2">
                 <label for="visi" class="form-label">Visi</label>
-                <textarea class="form-control" name="visi" id="visi" rows="3" placeholder="masukkan visi..."></textarea>
+                <textarea class="form-control" name="visi" id="visi" rows="3" placeholder="masukkan visi..."><?= $student["visi"]; ?></textarea>
             </div>
 
             <div class="mb-2">
                 <label for="misi" class="form-label">Misi</label>
-                <textarea class="form-control" name="misi" id="misi" rows="3" placeholder="masukkan misi..."></textarea>
+                <textarea class="form-control" name="misi" id="misi" rows="3" placeholder="masukkan misi..."><?= $student["misi"]; ?></textarea>
             </div>
 
             <br>
 
             <label for="basic-url" class="form-label">Foto</label>
+            <div class="">
+                <img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" width="100" class="mb-1" alt="">
+            </div>
             <div class="input-group mb-3">
                 <input type="file" name="gambar" class="form-control" id="inputGroupFile02">
             </div>

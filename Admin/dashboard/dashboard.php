@@ -62,7 +62,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="../../Login/logout.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -102,7 +102,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../../Login/logout.php">
+                        <a class="nav-link" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>

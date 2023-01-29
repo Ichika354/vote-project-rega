@@ -54,7 +54,7 @@ $students = query("SELECT * FROM kandidat");
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="../../Login/logout.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -94,7 +94,7 @@ $students = query("SELECT * FROM kandidat");
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="../../Login/logout.php">
+                        <a class="nav-link" href="../../Login/logout.php" onclick="return confirm('Yakin mau keluar?')">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Log out
                         </a>
@@ -153,9 +153,9 @@ $students = query("SELECT * FROM kandidat");
                                 <td><?= $student["visi"]; ?></td>
                                 <td><?= $student["misi"]; ?></td>
                                 <td>
-                                    <a type="button" class="btn btn-warning" href="../../config/update/update-kandidat.php">Edit</a>
+                                    <a type="button" class="btn btn-warning" href="../../config/update/update-kandidat.php?id=<?= $student["id_kandidat"]; ?>">Edit</a>
                                     <hr>
-                                    <a type="button" class="btn btn-danger" href="">Hapus</a>
+                                    <a type="button" class="btn btn-danger" href="../../config/delete/delete.php?id=<?= $student["id_kandidat"]; ?>" onclick="return confirm('Yakin mau dihapus?')">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

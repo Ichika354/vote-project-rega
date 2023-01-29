@@ -115,13 +115,48 @@
         mysqli_query($connect, "INSERT INTO users VALUES('','$nama_lengkap', '$username','$email', '$password', 'user')");
     
         return mysqli_affected_rows($connect);
-    
-    
-    
     }
 
+    function hapus($id) {
+        global $connect;
+        mysqli_query($connect, "DELETE FROM kandidat WHERE id_kandidat = $id");
+    
+        return mysqli_affected_rows($connect);
+    }
 
-?>
+    function ubah($data) {
+        global $connect;
+    
+        $id_kandidat      = $data["id_kandidat"];
+        $ketua            = $data["ketua"];
+        $wakil            = $data["wakil"];
+        $prodi_ketua      = $data["prodi_ketua"];
+        $prodi_wakil      = $data["prodi_wakil"];
+        $visi             = $data["visi"];
+        $misi             = $data["misi"];
+        $gambarLama       = $data["gambarLama"];
+        // $gambar           = $data["gambar"];
+    
+        if($_FILES["gambar"]["error"] === 4) {
+            $gambar = $gambarLama;
+        } else {
+            $gambar = upload();
+        }
 
-
-
+        //query insert
+        $query = "UPDATE kandidat SET
+                    gambar        = '$gambar',
+                    ketua         = '$ketua',
+                    wakil         = '$wakil',
+                    prodi_ketua   = '$prodi_ketua',
+                    prodi_wakil   = '$prodi_wakil',
+                    visi          = '$visi',
+                    misi          = '$misi'
+    
+                  WHERE id_kandidat= $id_kandidat   
+        
+                ";
+        mysqli_query($connect, $query);
+    
+        return mysqli_affected_rows($connect);
+    }
