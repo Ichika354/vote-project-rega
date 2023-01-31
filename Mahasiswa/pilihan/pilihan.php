@@ -136,7 +136,7 @@ $students = query("SELECT * FROM kandidat");
                                     <h6 class="card-text"> Wakil :</h6>
                                     <p><?= $student["wakil"]; ?></p>
                                     <button type="button" class="btn btn-success">Vote</button>
-                                    <a href="../../Mahasiswa/pilihan/detail.php" class="btn btn-primary">Detail</a>
+                                    <a href="../../Mahasiswa/pilihan/detail.php?id=<?= $student["id_kandidat"]; ?>" class="btn btn-primary">Detail</a>
                                 </div>
                             </div>
                         </div>

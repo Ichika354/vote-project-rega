@@ -20,7 +20,6 @@ require '../../function/function.php';
     <meta name="author" content="" />
     <title>Mahasiswa-Profile</title>
 
-    <title>Dashboard Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="../../assets/css/dashboard.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -33,7 +32,7 @@ require '../../function/function.php';
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <!-- <img src="../assets/images/logo/logo.png" class="ms-3" alt="" width="40" height="40"> -->
-        <a class="navbar-brand ps-3" href="index.html">Admin</a>
+        <a class="navbar-brand ps-3" href="index.html">Mahasiswa</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -143,14 +142,14 @@ require '../../function/function.php';
                                                     </tr>
                                                 </table>
                                             </div>
-
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                    </div>
+                </div>
+            <a href="tambah-profile.php">Lengkapi Data Diri</a>
             </main>
         </div>
 

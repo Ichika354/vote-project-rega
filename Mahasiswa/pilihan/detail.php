@@ -65,9 +65,13 @@ $students = query("SELECT * FROM kandidat");
 
     <?php
     $username = $_SESSION["user"];
-    $queryUser = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
+    $queryUser = mysqli_query($connect, "SELECT * FROM users  WHERE username = '$username'");
     $profile = mysqli_fetch_assoc($queryUser);
 
+    $id = $_GET["id"];
+
+    // Query data mahasiswa bedasarkan id
+    $data = query("SELECT * FROM kandidat WHERE id_kandidat = $id")[0];
 
     ?>
     <!-- navbar end -->
@@ -87,46 +91,47 @@ $students = query("SELECT * FROM kandidat");
 
         <!-- content  -->
         <form action="" method="post" enctype="multipart/form-data">
-        <img src="../../assets/images/profile/girl.png" width="200" height="200" class="rounded mx-auto d-block" alt="...">
+            <img src="../../assets/images/fotoKandidat/<?= $data["gambar"]; ?>" width="400"  class="rounded mx-auto d-block" alt="...">
             <br>
             <div class="row">
                 <h6>Nama Kandidat</h6>
                 <div class="col">
-                        <label for="ketua" class="form-label text-dark">Ketua</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col">
+                    <label for="ketua" class="form-label text-dark">Ketua</label>
+                    <input type="text" class="form-control bg-white" value=" <?= $data["ketua"]; ?>" readonly>
+                </div>
+                <div class="col">
                     <label for="wakil" class="form-label text-dark">Wakil</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="bg-white form-control" readonly value=" <?= $data["wakil"]; ?>" />
                 </div>
             </div>
             <br>
             <div class="row">
                 <h6>Program Studi</h6>
                 <div class="col">
-                        <label for="ketua" class="form-label text-dark">Ketua</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col">
+                    <label for="ketua" class="form-label text-dark">Ketua</label>
+                    <input type="text" class="bg-white form-control" readonly value="<?= $data["prodi_ketua"]; ?>">
+                </div>
+                <div class="col">
                     <label for="wakil" class="form-label text-dark">Wakil</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="bg-white form-control" readonly value="<?= $data["prodi_wakil"]; ?>">
                 </div>
             </div>
             <br>
             <div class="row">
                 <h6>Visi dan Misi</h6>
                 <div class="col">
-                        <label for="visi" class="form-label text-dark">Visi</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col">
-                    <label for="misi" class="form-label text-dark">Misi</label>
-                    <input type="text" class="form-control">
+                    <p for="visi" class="form-label text-dark">Visi</p>
+                    <textarea name="" id="" cols="60" rows="5" readonly><?= $data["visi"]; ?></textarea>
+                </div>
+                <div class="col">
+                    <p for="misi" class="form-label text-dark">Misi</p>
+                    <textarea name="" id="" cols="60" rows="5" readonly><?= $data["misi"]; ?></textarea>
+
                 </div>
             </div>
-        
 
-        <br>
+
+            <br>
             <a href="../../Mahasiswa/pilihan/pilihan.php" class="btn btn-secondary">Kembali</a>
         </form>
         <!-- content end  -->

@@ -160,3 +160,28 @@
     
         return mysqli_affected_rows($connect);
     }
+
+    function add($data) {
+        global $connect;
+    
+        $kelas = htmlspecialchars($data["kelas"]) ;
+        $npm = htmlspecialchars($data["npm"]);
+        $prodi = $data["prodi"];
+        $alamat = htmlspecialchars($data["alamat"]);
+       
+
+        //upload gambar
+    
+        $foto = upload();
+    
+        if (!$foto) {
+            return false;
+        }
+        
+    
+        //query insert
+        $query = "INSERT INTO usersz VALUES ('', '', '', '', '', '', '$kelas', '$npm','$prodi', '$alamat','$foto')";
+        mysqli_query($connect, $query);
+    
+        return mysqli_affected_rows($connect);
+    }
