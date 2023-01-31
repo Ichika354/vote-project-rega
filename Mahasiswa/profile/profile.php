@@ -138,7 +138,7 @@ require '../../function/function.php';
                                                     <tr>
                                                         <td class="p-2">Alamat</td>
                                                         <td class="p-2">:</td>
-                                                        <td class="p-2"><?= $profile["email"]; ?></td>
+                                                        <td class="p-2"><?= $profile["alamat"]; ?></td>
                                                     </tr>
                                                 </table>
                                             </div>

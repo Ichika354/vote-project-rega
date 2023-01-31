@@ -141,7 +141,7 @@ $profile = mysqli_fetch_assoc($queryUser);
             <br>
 
             <button type="submit" name="submit" class="btn btn-success text-light">Submit</button>
-            <a href="../../Admin/kandidat/data-kandidat.php" class="btn btn-secondary">Kembali</a>
+            <a href="profile.php" class="btn btn-secondary">Kembali</a>
         </form>
         <!-- content end  -->
 
