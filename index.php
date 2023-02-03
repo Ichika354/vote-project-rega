@@ -44,7 +44,7 @@
 
     <!-- Navbar end -->
 
-    <div class="bg">
+    <div class="bg" id="change">
         <div class="container p-5 putih">
             <div class="box-1">
                 <div class="title-box text-center h-25 d-flex align-items-end">
@@ -53,7 +53,12 @@
                 <div class="deskription-box mb-5">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ratione aspernatur provident in enim nam itaque id dignissimos, quis obcaecati quas, tenetur ducimus nemo ut animi, excepturi voluptatum? Dignissimos, delectus!</p>
                     <br>
-                    <button class="btn btn-dark">Login</button>
+                    <form action="">
+                        <input type="text" class="from-control" id="input">
+                        <br>
+                        <br>
+                        <button class="btn btn-dark" onclick="update()">Ubah</button>
+                    </form>
                 </div>
             </div>
             <div class="box-2">
@@ -67,6 +72,7 @@
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
