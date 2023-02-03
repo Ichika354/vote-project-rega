@@ -1,12 +1,4 @@
-<?php 
-   session_start();
 
-//    if (isset($_SESSION["login"])) {
-//        header("Location: ../Admin/dashboard/dashboard.php");
-//        exit;   
-//    }
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +36,8 @@
 
     <!-- Navbar end -->
 
-    <div class="bg" id="change">
-        <div class="container p-5 putih">
+    <div class="bg">
+        <div class="container p-5 putih " id="target">
             <div class="box-1">
                 <div class="title-box text-center h-25 d-flex align-items-end">
                     <h2>Vote Presma</h2>
@@ -53,12 +45,8 @@
                 <div class="deskription-box mb-5">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ratione aspernatur provident in enim nam itaque id dignissimos, quis obcaecati quas, tenetur ducimus nemo ut animi, excepturi voluptatum? Dignissimos, delectus!</p>
                     <br>
-                    <form action="">
-                        <input type="text" class="from-control" id="input">
-                        <br>
-                        <br>
-                        <button class="btn btn-dark" onclick="update()">Ubah</button>
-                    </form>
+                    <input type="text" id="input">
+                    <button class="btn btn-dark" onclick="ubah()">Ubah</button>
                 </div>
             </div>
             <div class="box-2">
