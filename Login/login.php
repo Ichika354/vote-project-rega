@@ -125,7 +125,7 @@ if (isset($_POST["submit"])) {
                                     <p class="text-center"><a href="../index.php">Back</a></p>
                                 </div>
                                 <input type="submit" name="submit" value="Log In" class="btn btn-block btn-primary">
-
+                                    
                             </form>
                         </div>
                     </div>

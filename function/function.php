@@ -89,16 +89,32 @@
         $email = strtolower(stripslashes($data["email"]));
         $password = mysqli_real_escape_string($connect, $data["password"]);
         $confirmPassword = mysqli_real_escape_string($connect, $data["confirm_password"]);
+        $kelas = mysqli_real_escape_string($connect, $data["kelas"]);
+        $npm = mysqli_real_escape_string($connect, $data["npm"]);
+        $prodi = mysqli_real_escape_string($connect, $data["prodi"]);
+        $alamat = mysqli_real_escape_string($connect, $data["alamat"]);
     
         //cek apakah username sudah ada atau belum
         $result = mysqli_query($connect, "SELECT username FROM users WHERE username = '$username'");
+        $result1 = mysqli_query($connect, "SELECT username FROM users WHERE npm = '$npm'");
+        $result2 = mysqli_query($connect, "SELECT username FROM users WHERE email = '$email'");
     
         if ( mysqli_fetch_assoc($result)) {
             echo "<script>
                     alert('Username yang dipilih sudah terdaftar')
                 </script>";
                 return false;
-        }   
+        } elseif (mysqli_fetch_assoc($result1)) {
+            echo "<script>
+                    alert('NPM yang dipilih sudah terdaftar')
+                </script>";
+                return false;
+        } elseif (mysqli_fetch_assoc($result2)) {
+            echo "<script>
+                    alert('Email yang dipilih sudah terdaftar')
+                </script>";
+                return false;
+        }
     
     
         if ($password !== $confirmPassword) {
@@ -112,7 +128,7 @@
         $password = password_hash($password, PASSWORD_DEFAULT);
     
         //tambahkan userbaru ke database
-        mysqli_query($connect, "INSERT INTO users VALUES('','$nama_lengkap', '$username','$email', '$password', 'user', '', '', '', '', '')");
+        mysqli_query($connect, "INSERT INTO users VALUES('','$nama_lengkap', '$username','$email', '$password', 'user', '$kelas', '$npm', '$prodi', '$alamat', '')");
     
         return mysqli_affected_rows($connect);
     }
@@ -164,23 +180,24 @@
     function add($data) {
         global $connect;
     
+        $username = htmlspecialchars($data["username"]);
         $kelas = htmlspecialchars($data["kelas"]) ;
         $npm = htmlspecialchars($data["npm"]);
         $prodi = $data["prodi"];
         $alamat = htmlspecialchars($data["alamat"]);
        
-
-        //upload gambar
+        $query = "UPDATE users SET
+                    
+                    kelas     = '$kelas',
+                    npm       = '$npm',
+                    prodi_mhs = '$prodi',
+                    alamat    = '$alamat'
     
-        $foto = upload();
-    
-        if (!$foto) {
-            return false;
-        }
+                  WHERE username = $username
         
-    
-        //query insert
-        $query = "INSERT INTO usersz VALUES ('', '', '', '', '', '', '$kelas', '$npm','$prodi', '$alamat','$foto')";
+                ";
+
+       
         mysqli_query($connect, $query);
     
         return mysqli_affected_rows($connect);

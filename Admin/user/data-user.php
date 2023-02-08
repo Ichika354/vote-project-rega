@@ -126,6 +126,10 @@ $votes = query("SELECT * FROM users");
                             <th scope="col">Nama Lengkap</th>
                             <th scope="col">Username</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Kelas</th>
+                            <th scope="col">NPM</th>
+                            <th scope="col">Prodi</th>
+                            <th scope="col">Alamat</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,6 +140,10 @@ $votes = query("SELECT * FROM users");
                                 <td><?= $vote["nama_lengkap"]; ?></td>
                                 <td><?= $vote["username"]; ?></td>
                                 <td><?= $vote["email"]; ?></td>
+                                <td><?= $vote["kelas"]; ?></td>
+                                <td><?= $vote["npm"]; ?></td>
+                                <td><?= $vote["prodi_mhs"]; ?></td>
+                                <td><?= $vote["alamat"]; ?></td>
                             </tr>
                             <?php $i++; ?>
                         <?php endforeach; ?>

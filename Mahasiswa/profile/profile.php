@@ -140,6 +140,21 @@ require '../../function/function.php';
                                                         <td class="p-2">:</td>
                                                         <td class="p-2"><?= $profile["alamat"]; ?></td>
                                                     </tr>
+                                                    <tr>
+                                                        <td class="p-2">Kelas</td>
+                                                        <td class="p-2">:</td>
+                                                        <td class="p-2"><?= $profile["kelas"]; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-2">NPM</td>
+                                                        <td class="p-2">:</td>
+                                                        <td class="p-2"><?= $profile["npm"]; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-2">Prodi</td>
+                                                        <td class="p-2">:</td>
+                                                        <td class="p-2"><?= $profile["prodi_mhs"]; ?></td>
+                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>
@@ -149,7 +164,7 @@ require '../../function/function.php';
                         </div>
                     </div>
                 </div>
-            <a href="tambah-profile.php">Lengkapi Data Diri</a>
+                <a href="tambah-profile.php">Lengkapi Data Diri</a>
             </main>
         </div>
 

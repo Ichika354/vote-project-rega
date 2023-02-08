@@ -26,12 +26,12 @@ if (isset($_POST["submit"])) {
     }
 }
 
-$students = query("SELECT * FROM users");
 
 $username = $_SESSION["user"];
 $queryUser = mysqli_query($connect, "SELECT * FROM users WHERE username = '$username'");
 $profile = mysqli_fetch_assoc($queryUser);
 
+$students = query("SELECT * FROM users WHERE username = '$username'");
 
 ?>
 
@@ -97,6 +97,7 @@ $profile = mysqli_fetch_assoc($queryUser);
         <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <h6>Data Mahasiswa</h6>
+                <!-- <input type="text" name="username" value="<?= $students["username"]; ?>">  -->
                 <label for="username" class="form-label text-dark">Username</label>
                 <input type="text" name="username" id="username" readonly value="<?= $profile["username"] ?>"  required class="form-control" placeholder="username..">
 

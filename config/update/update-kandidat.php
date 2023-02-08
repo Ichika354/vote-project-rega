@@ -105,7 +105,7 @@ if (isset($_POST["submit"])) {
             <label for="prodi_ketua" class="form-label text-dark">Prodi Ketua</label>
             <select class="form-select" name="prodi_ketua" aria-label="Default select example">
                 <option selected>Pilih Program Studi</option>
-                <option>D3 Teknik Informatika</option>
+                <option >D3 Teknik Informatika</option>
                 <option>D3 Akuntansi</option>
                 <option>D3 Logistik Bisnis</option>
                 <option>D4 Teknik Informatika</option>
