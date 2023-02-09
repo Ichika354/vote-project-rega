@@ -49,10 +49,10 @@ if (isset($_POST["submit"])) {
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 d-flex justify-content-start align-items-center w-25" style="margin-bottom: 10rem; padding-left: 0;">
+                <!-- <div class="col-md-6 d-flex justify-content-start align-items-center w-25" style="margin-bottom: 10rem; padding-left: 0;">
                     <img src="../assets/images/bg/bg-login.png" alt="Image" class="img-fluid" width="300" height="300">
-                </div>
-                <div class="col-md-6 contents w-75">
+                </div> -->
+                <div class="col-md-6 contents w-100">
                     <div class="row justify-content-center w-100">
                         <div class="col-md-8 w-100">
                             <div class="mb-4">
@@ -60,8 +60,8 @@ if (isset($_POST["submit"])) {
                                 <p class="mb-4 text-center">Universitas Logistik dan Bisnis Internasinal.</p>
                             </div>
                             <form action="" method="post" class="pb-5 w-100">
-                                <div class="w-100 d-flex gap-5">
-                                    <div class="w-50">
+                                <div class="w-100 d-flex flex-wrap justify-content-start align-items-center gap-5">
+                                    <div class="w-100">
                                         <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                                         <div class="form-group first">
                                             <input required name="nama_lengkap" type="text" class="form-control" id="nama_lengkap">
@@ -73,7 +73,6 @@ if (isset($_POST["submit"])) {
                                         <label for="email" class="form-label">Email</label>
                                         <div class="form-group first">
                                             <input required name="email" type="text" class="form-control" id="email">
-
                                         </div>
                                         <label for="password" class="form-label">Password</label>
                                         <div class="form-group last mb-4">
@@ -84,7 +83,7 @@ if (isset($_POST["submit"])) {
                                             <input required name="confirm_password" type="password" class="form-control" id="c-password">
                                         </div>
                                     </div>
-                                    <div class="w-50">
+                                    <div class="w-100">
                                         <label for="kelas" class="form-label">Kelas</label>
                                         <div class="form-group first">
                                             <select required name="kelas" class="form-select form-select-sm" aria-label=".form-select-sm example" id="kelas">
