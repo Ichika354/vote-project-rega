@@ -122,7 +122,7 @@ if (isset($_POST["submit"])) {
                                 <hr>
                                 <div class=" mb-5 align-items-center">
                                     <p class="text-center">Don't have an account? <a href="../Register/regis.php"> Register</a> here.</p>
-                                    <p class="text-center"><a href="../index.php">Back</a></p>
+                                    <p class="text-center"><a href="../index.html">Back</a></p>
                                 </div>
                                 <input type="submit" name="submit" value="Log In" class="btn btn-block btn-primary">
                                     

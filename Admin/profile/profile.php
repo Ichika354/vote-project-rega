@@ -119,7 +119,7 @@ if (!isset($_SESSION["admin"])) {
                         <div class="row g-2 mb-3">
                             <div class="col-12">
                                 <div class="d-block bg-white rounded shadow p-3">
-                                    <h4>My Project Team</h4>
+                                    <h4>Project Team</h4>
                                     <hr>
                                     <div class="container text-center">
                                         <div class="row">
