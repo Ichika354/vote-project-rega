@@ -13,9 +13,11 @@ require '../../function/function.php';
 
 $data_user = mysqli_query($connect, "SELECT * FROM users");
 $data_kandidat = mysqli_query($connect, "SELECT * FROM kandidat");
+$data_laporan = mysqli_query($connect, "SELECT * FROM laporan");
 
 $jumlah_user = mysqli_num_rows($data_user);
 $jumlah_kandidat = mysqli_num_rows($data_kandidat);
+$jumlah_laporan = mysqli_num_rows($data_laporan);
 
 
 
@@ -156,7 +158,7 @@ $jumlah_kandidat = mysqli_num_rows($data_kandidat);
                                 <div class="d-flex align-items-center px-2">
                                     <i class="fa fa-box float-start fa-3x py-auto" aria-hidden="true"></i>
                                     <div class="card-body text-end">
-                                        <h5 class="card-title"><?= 1; ?></h5>
+                                        <h5 class="card-title"><?= $jumlah_laporan ?></h5>
                                         <p class="card-text">Laporan Vote</p>
                                     </div>
                                 </div>

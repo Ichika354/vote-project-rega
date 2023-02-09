@@ -10,7 +10,21 @@ if (!isset($_SESSION["login"])) {
 require '../../function/function.php';
 $students = query("SELECT * FROM kandidat");
 
+if (isset($_POST["vote"])) {
 
+    // var_dump($_POST);
+    // var_dump($_FILES);
+    // die;
+
+    if (vote($_POST)) {
+        header("Location: berhasil.php");
+    } else {
+        echo
+        "<script>
+                alert('Vote gagal :( ');
+            </script>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -129,15 +143,20 @@ $students = query("SELECT * FROM kandidat");
                                 <img src="../../assets/images/fotoKandidat/<?= $student["gambar"]; ?>" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Pasangan Kandidat</h5>
-                                    <h6 class="card-text"> Ketua :</h6>
-                                    <p> <?= $student["ketua"]; ?></p>
-                                    <h6 class="card-text"> Wakil :</h6>
-                                    <p><?= $student["wakil"]; ?></p>
-                                    <a href="berhasil.php?id=<?= $student["id_kandidat"]; ?>" class="btn btn-success">Vote</a>
-                                    <a href="../../Mahasiswa/pilihan/detail.php?id=<?= $student["id_kandidat"]; ?>" class="btn btn-primary">Detail</a>
-                                </div>
+                                <form action="" method="post">
+                                    <div class="card-body">
+                                        <input type="hidden" name="id" value="<?= $student["id_kandidat"]; ?>">
+                                        <h5 class="card-title">Pasangan Kandidat</h5>
+                                        <h6 class="card-text"> Ketua :</h6>
+                                        <p> <?= $student["ketua"]; ?></p>
+                                        <input type="hidden" name="ketua" value="<?= $student["ketua"]; ?>">
+                                        <h6 class="card-text"> Wakil :</h6>
+                                        <p><?= $student["wakil"]; ?></p>
+                                        <input type="hidden" name="wakil" value="<?= $student["wakil"]; ?>">
+                                        <button name="vote" class="btn btn-success">Vote</button>
+                                        <a href="../../Mahasiswa/pilihan/detail.php?id=<?= $student["id_kandidat"]; ?>" class="btn btn-primary">Detail</a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

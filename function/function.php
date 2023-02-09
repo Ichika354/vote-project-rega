@@ -202,3 +202,23 @@
     
         return mysqli_affected_rows($connect);
     }
+
+    function vote($data) {
+        global $connect;
+
+        $id = htmlspecialchars($data["id"]) ;
+        $ketua = htmlspecialchars($data["ketua"]) ;
+        $wakil = htmlspecialchars($data["wakil"]) ;
+        
+    
+
+        
+    
+        //query insert
+        $query = "INSERT INTO laporan VALUES ('', '$id', '$ketua', '$wakil', '')";
+        mysqli_query($connect, $query);
+    
+        return mysqli_affected_rows($connect);
+    }
+
+?>

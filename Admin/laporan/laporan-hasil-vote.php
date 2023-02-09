@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -6,6 +6,9 @@ if (!isset($_SESSION["admin"])) {
     header("Location: ../../index.html");
     exit;
 }
+
+require '../../function/function.php';
+$students = query("SELECT * FROM laporan");
 
 ?>
 
@@ -125,13 +128,17 @@ if (!isset($_SESSION["admin"])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Ghaida Fasya</td>
-                            <td>D4 Teknik Informatika</td>
-                            <td>Reja</td>
-                            <td>12-01-2023</td>
-                        </tr>
+                        <?php $i = 1; ?>
+                        <?php foreach ($students as $student) : ?>
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td>Ghaida Fasya</td>
+                                <td>D4 Teknik Informatika</td>
+                                <td><?= $student["ketua"] ?> & <?= $student["wakil"] ?></td>
+                                <td>12-01-2023</td>
+                            </tr>
+                        <?php $i++; ?>
+                        <?php endforeach; ?>
 
                     </tbody>
                 </table>
