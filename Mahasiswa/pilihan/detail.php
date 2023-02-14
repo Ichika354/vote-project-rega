@@ -175,7 +175,7 @@ $students = query("SELECT * FROM kandidat");
                             </div>
                             <div class="profile d-flex justify-content-center align-items-center ">
                                 <label class="modal-title w-75">Alamat</label>
-                                <input type="text" name="ketua" value=": <?= $profile["email"]; ?>" class="form-control" id="ketua" style="border: none;">
+                                <input type="text" name="ketua" value=": <?= $profile["alamat"]; ?>" class="form-control" id="ketua" style="border: none;">
                             </div>
 
                         </div>

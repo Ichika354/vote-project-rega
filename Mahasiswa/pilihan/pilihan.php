@@ -153,7 +153,7 @@ if (isset($_POST["vote"])) {
                                         <h6 class="card-text"> Wakil :</h6>
                                         <p><?= $student["wakil"]; ?></p>
                                         <input type="hidden" name="wakil" value="<?= $student["wakil"]; ?>">
-                                        <button name="vote" class="btn btn-success">Vote</button>
+                                        <button name="vote" class="btn btn-success" onclick="return confirm('Yakin mau vote?')">Vote</button>
                                         <a href="../../Mahasiswa/pilihan/detail.php?id=<?= $student["id_kandidat"]; ?>" class="btn btn-primary">Detail</a>
                                     </div>
                                 </form>
@@ -242,7 +242,7 @@ if (isset($_POST["vote"])) {
                             </div>
                             <div class="profile d-flex justify-content-center align-items-center ">
                                 <label class="modal-title w-75">Alamat</label>
-                                <input type="text" name="ketua" value=": <?= $profile["email"]; ?>" class="form-control" id="ketua" style="border: none;">
+                                <input type="text" name="ketua" value=": <?= $profile["alamat"]; ?>" class="form-control" id="ketua" style="border: none;">
                             </div>
 
                         </div>
