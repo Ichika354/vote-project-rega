@@ -9,20 +9,57 @@ if (!isset($_SESSION["login"])) {
 require  '../../function/function.php';
 
 
+// Mendapatkan username pengguna yang sedang login
+$loggedInUser = $_SESSION['user'];
+
+// Mengambil data dari database berdasarkan username pengguna yang login
+$query = "SELECT * FROM users WHERE username = '$loggedInUser'";
+$result = mysqli_query($connect, $query);
+
+// Cek apakah data ditemukan
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $username = $row['username'];
+    $email = $row['email'];
+} else {
+    echo "Data pengguna tidak ditemukan.";
+    exit();
+}
+
+// Proses pembaruan data
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $newNama = $_POST['nama'];
+//     $newEmail = $_POST['email'];
+
+//     // Perbarui data pengguna dalam database
+//     $updateQuery = "UPDATE data_pengguna SET nama = '$newNama', email = '$newEmail' WHERE username = '$loggedInUser'";
+//     $updateResult = mysqli_query($koneksi, $updateQuery);
+
+//     if ($updateResult) {
+//         echo "Data berhasil diperbarui.";
+//     } else {
+//         echo "Terjadi kesalahan saat memperbarui data.";
+//     }
+// }
+
+// Proses penambahan data
+
+
 //Cek apakah tombol sudah ditekan atau belom
 if (isset($_POST["submit"])) {
 
-    if (add($_POST) > 0) {
-        echo
-        "<script>
-                alert('Data berhasil ditambahkan');
-                window.location.href = '';
-            </script>";
-    } else {
-        echo
-        "<script>
-                alert('Data gagal ditambahkan :( ');
-            </script>";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tambah'])) {
+        $newData = $_POST['data'];
+    
+        // Tambahkan data baru ke dalam database
+        $insertQuery = "INSERT INTO users (username, data) VALUES ('$loggedInUser', '$newData')";
+        $insertResult = mysqli_query($connect, $insertQuery);
+    
+        if ($insertResult) {
+            echo "Data berhasil ditambahkan.";
+        } else {
+            echo "Terjadi kesalahan saat menambahkan data.";
+        }
     }
 }
 
@@ -97,7 +134,7 @@ $students = query("SELECT * FROM users WHERE username = '$username'");
         <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <h6>Data Mahasiswa</h6>
-                <input type="text" name="username" value="<?= $students["username"]; ?>"> 
+                <!-- <input type="text" name="username" value="<?= $students["username"]; ?>">  -->
                 <label for="username" class="form-label text-dark">Username</label>
                 <input type="text" name="username" id="username" readonly value="<?= $profile["username"] ?>"  required class="form-control" placeholder="username..">
 

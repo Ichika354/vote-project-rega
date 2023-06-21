@@ -164,7 +164,7 @@ require '../../function/function.php';
                         </div>
                     </div>
                 </div>
-                <!-- <a href="tambah-profile.php">Lengkapi Data Diri</a> -->
+                <a href="tambah-profile.php">Lengkapi Data Diri</a>
             </main>
         </div>
 
