@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
         if ($data["level"] === "admin") {
             $_SESSION["admin"] = true;
             echo "<script>
-                    window.location.href = '../Admin/'
+                    window.location.href = '../../Admin/'
                 </script>";
         }
     }
