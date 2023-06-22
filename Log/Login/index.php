@@ -4,12 +4,12 @@ session_start();
 if (isset($_SESSION["login"])) {
     header("Location: ../Mahasiswa/vote/vote.php");
 } elseif (isset($_SESSION["admin"])) {
-    header("Location: ../Admin/dashboard/dashboard.php");
+    header("Location: ../Admin/");
 }
 
 
 
-require '../function/function.php';
+require '../../function/function.php';
 
 if (isset($_POST["submit"])) {
 
@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
         if ($data["level"] === "admin") {
             $_SESSION["admin"] = true;
             echo "<script>
-                    window.location.href = '../Admin/dashboard/dashboard.php'
+                    window.location.href = '../Admin/'
                 </script>";
         }
     }
@@ -67,15 +67,15 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/font/icomoon/style.css">
+    <link rel="stylesheet" href="../../assets/font/icomoon/style.css">
 
-    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -90,7 +90,7 @@ if (isset($_POST["submit"])) {
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="../assets/images/bg/bg-login.png" alt="Image" class="img-fluid" width="600" height="600">
+                    <img src="../../assets/images/bg/bg-login.png" alt="Image" class="img-fluid" width="600" height="600">
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
@@ -121,11 +121,11 @@ if (isset($_POST["submit"])) {
                                 </div>
                                 <hr>
                                 <div class=" mb-5 align-items-center">
-                                    <p class="text-center">Don't have an account? <a href="../Register/regis.php"> Register</a> here.</p>
-                                    <p class="text-center"><a href="../index.html">Back</a></p>
+                                    <p class="text-center">Don't have an account? <a href="../Register/"> Register</a> here.</p>
+                                    <p class="text-center"><a href="../../">Back</a></p>
                                 </div>
                                 <input type="submit" name="submit" value="Log In" class="btn btn-block btn-primary">
-                                    
+
                             </form>
                         </div>
                     </div>
