@@ -38,18 +38,17 @@ $students = query("SELECT * FROM kandidat");
         <main class="p-4">
             <div class="container-fluid px-4">
                 <h1 class="">Data Kandidat</h1>
-                <ol class="breadcrumb mb-4">
+                <!-- <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item active">Main Menu</a></li>
                     <li class="breadcrumb-item active">Data Kandidat</li>
-                </ol>
+                </ol> -->
             </div>
 
-
-            <br>
-            <a type="button" class="btn btn-success" href="../../config/create/create-kandidat.php">Tambah</a>
             <hr>
-            <table class="table table-striped text-center ">
+            <a type="button" class="btn btn-success" href="../../config/create/create-kandidat.php"><i class="fa-solid fa-user-plus"></i> Tambah data kandidat</a>
+
+            <!-- <table class="table table-striped text-center ">
                 <thead>
                     <tr class="table-dark">
                         <th scope="col" rowspan="2" class="pb-4">ID</th>
@@ -88,7 +87,24 @@ $students = query("SELECT * FROM kandidat");
 
 
                 </tbody>
-            </table>
+            </table> -->
+            <br><br>
+            <div class="row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Pasangan Kandidat 1</h5>
+                            <center> <img src="../../assets/images/profile/boy.png" alt="" width="150px" height="150px"></center>
+                            <br>
+                            <center>
+                                <a href="#" class="btn btn-primary">View</a>
+                                <a href="update/?id=<?= $student["id_kandidat"]; ?>" class="btn btn-warning">Edit</a>
+                                <a href="#+" class="btn btn-danger">Delete</a>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
